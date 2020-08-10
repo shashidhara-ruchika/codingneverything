@@ -2,6 +2,16 @@
 https://www.codechef.com/LRNDSA02/problems/INPSTFIX
 */
 
+/*
+
+examples
+
+((A+B)*D)^(E-F)				AB+D*EF-^
+
+A+(B*C-(D/E^F)*G)*H			ABC*DEF^/G*-H*+
+
+*/
+
 #include <iostream>
 #include <bits/stdc++.h>
 
