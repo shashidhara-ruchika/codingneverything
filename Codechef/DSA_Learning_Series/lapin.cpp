@@ -2,6 +2,11 @@
 https://www.codechef.com/LRNDSA01/problems/LAPIN/
 */
 
+/*
+Lapindrome is defined as a string which when split in the middle, 
+gives two halves having the same characters and same frequency of each character.
+*/
+
 #include <iostream>
 #include <bits/stdc++.h>
 
