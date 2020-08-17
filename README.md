@@ -1,8 +1,13 @@
 # codingneverything
 Coding N Everything
 
-Codechef
-1) DSA_Learning_Series
-2) Long_Challenges
+Codechef:
+
+DSA_Learning_Series(https://www.codechef.com/LEARNDSA?itm_campaign=contest_listing)
+
+1) Complexity Analysis + Basic Warm Up
+2) Linear Data Structures
+
+
     
 
