@@ -3,7 +3,12 @@ https://www.codechef.com/LRNDSA02/problems/CHFQUEUE
 */
 
 /*
+Reference Link:
 https://www.geeksforgeeks.org/find-the-nearest-smaller-numbers-on-left-side-in-an-array/
+
+There can be an Efficient Solution that works in O(n) time. 
+Stack is used to maintain a subsequence of the values that have been processed so far
+and are smaller than any later value that has already been processed.
 
 Let input sequence be 'arr[]' and size of array be 'n'
 
