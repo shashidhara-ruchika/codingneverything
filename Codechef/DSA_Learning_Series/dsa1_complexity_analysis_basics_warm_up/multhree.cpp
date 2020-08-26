@@ -1,6 +1,5 @@
 /*
 https://www.codechef.com/LRNDSA01/problems/MULTHREE
-TLE
 */
 
 /*
@@ -25,6 +24,8 @@ d6 = [16* (d0 + d1)] mod 10
 5 mod 10 = 5
 10 mod 10 = 0
 */
+
+/* Above approach results in TLE */
 
 #include <iostream>
 #include <bits/stdc++.h>
