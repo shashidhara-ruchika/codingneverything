@@ -2,7 +2,8 @@
 https://www.codechef.com/LRNDSA03/problems/FENCE
 */
 
-// RE for 70% of cases
+// AC for 100% cases if set of pairs is used
+// RE for 70%  cases if 2d array is used
 
 /*
 initialized set of pairs of (row, col) for k plant cells, count = 0
