@@ -6,6 +6,8 @@ https://www.codechef.com/LRNDSA03/problems/SAVKONO
 To find the min num of attacks, hits to Pain should be max
 So the soilder i with highest Ai should attack
 Ai can be the top of a priority queue, DS pq can store the Ai strengths
+Attacks on Z(Pain) should happen until Z <= 0
+At each iteration, Z = Z - Ai & Ai = floor(Ai/2.0) is performed
 */
 
 #include <iostream>
