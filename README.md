@@ -3,7 +3,7 @@ Coding N Everything
 
 ## Codechef:
 
-### Challenge Solutions
+### Contest Solutions
 Monthly Challenge, Lunchtime, Cookoff
 
 ### DSA_Learning_Series (https://www.codechef.com/LEARNDSA?itm_campaign=contest_listing)
@@ -14,7 +14,8 @@ Monthly Challenge, Lunchtime, Cookoff
 
 
 ## Leetcode:
-1) Easy Problems
+
+1) Easy Problems (https://leetcode.com/problemset/all/?difficulty=Easy)
 
     
 
