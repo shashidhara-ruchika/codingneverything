@@ -41,6 +41,8 @@ private:
     }
     
 public:
+
+    // divide & conquer method
     string longestCommonPrefix_div_conq(vector<string>& strs) {
         
         if (strs.size() == 0)
@@ -48,6 +50,7 @@ public:
         return getLongestCommonPrefix(strs, 0, strs.size() - 1);        
     }
 
+    // normal character equal check
     string longestCommonPrefix(vector<string>& strs) {
         
         int strs_len = strs.size(), i = 1;
@@ -67,24 +70,56 @@ public:
         return lcp;  
 
     }
+
+    void solve_div_conq() {
+        
+        int n;
+        string s;
+        vector<string> strs;
+
+        cin >> n;
+        while(n-- > 0) {
+            cin >> s;
+            strs.push_back(s);
+        }
+        cout << longestCommonPrefix_div_conq(strs) << endl;
+    }
+
+    void solve() {
+        
+        int n;
+        string s;
+        vector<string> strs;
+
+        cin >> n;
+        while(n-- > 0) {
+            cin >> s;
+            strs.push_back(s);
+        }
+        cout << longestCommonPrefix(strs) << endl;
+    }
    
 };
 
 int main() {
 
+    /*
+    3
+    flower flow flight
+    2
+    dog cat
+    */
+
+    /*
+    fl
+    
+    */
+       
     Solution mysoln;
-    int n;
-    string s;
-    vector<string> strs;
+    mysoln.solve();
 
-    cin >> n;
-    while (n-- > 0) {
-        cin >> s;
-        strs.push_back(s);
-    }
-
-    cout << mysoln.longestCommonPrefix(strs) << endl;
-    cout << mysoln.longestCommonPrefix_div_conq(strs) << endl;
+    Solution mysoln_div_conq;
+    mysoln_div_conq.solve_div_conq();
     
     return 0;
 }

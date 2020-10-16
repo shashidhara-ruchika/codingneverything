@@ -8,7 +8,9 @@ using namespace std;
 
 class Solution {
 public:
-    int reverse(int x) {
+
+    // numerical method
+    int reverse_int(int x) {
         
         bool neg = false;        
         if (x < 0)
@@ -31,6 +33,7 @@ public:
               
     }
 
+    // conversion to string method
     int reverse_str(int x) {
                 
         bool neg = false;
@@ -55,26 +58,46 @@ public:
             return 0;
         
         else if (neg)
-            return -rev_num;
+            return -(int)rev_num;
         
         else
-            return rev_num; 
+            return (int)rev_num; 
         
         return 0;
                       
+    }
+
+    void solve_numeric() {        
+        int n;
+        cin >> n;
+        cout << reverse_int(n) << endl;
+    }
+
+    void solve_str_conversion() {
+        int n;
+        cin >> n;
+        cout << reverse_str(n) << endl;
     }
 };
 
 int main() {
 
-    int n, ns;
-    cin >> n;
-    ns = n;
+    /*
+    -5678
+    6789
+    */
+    
+    /*
+    -8765
+    9876
+    */ 
 
-    Solution mysoln;
-    n = mysoln.reverse(n);
-    ns = mysoln.reverse_str(ns);
-    cout << n << endl << ns << endl;
+    Solution mysoln_str_conv;
+    mysoln_str_conv.solve_str_conversion();   
+    
+    // something else is being printed
+    Solution mysoln_numeric;
+    mysoln_numeric.solve_numeric();  
 
     return 0;
 }

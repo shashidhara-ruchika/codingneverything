@@ -21,12 +21,27 @@ public:
         
         return true;
     }
+
+    void solve() {
+        int n;
+        cin >> n;
+        bool palin = isPalindrome(n);
+        cout << palin << endl;
+    }
 };
 
 int main () {
+
+    /*
+    12321
+    */
+
+    /*
+    1
+    */
+
     Solution mysoln;
-    int n;
-    cin >> n;
-    bool palin = mysoln.isPalindrome(n);
-    cout << palin << endl;
+    mysoln.solve();
+    return 0;
+
 }

@@ -25,6 +25,7 @@ public:
         return {0, 0};
     }  
 
+    
     void solve() {
 
         int n, target, num;
@@ -47,6 +48,16 @@ public:
 };
 
 int main() {
+
+    /*
+    4
+    2 7 11 15
+    9
+    */
+
+    /*
+    0 1
+    */
 
     Solution mysoln;
     mysoln.solve();

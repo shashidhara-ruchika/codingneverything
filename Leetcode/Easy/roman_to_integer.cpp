@@ -36,18 +36,30 @@ public:
                                                                    
         int_total += roman_to_int[s[s_len - 1]];
                                                                    
-        return int_total;        
+        return int_total;                
+    }
+
+    void solve() {
         
+        string roman_numeral;
+        cin >> roman_numeral;
+        cout << romanToInt(roman_numeral) << endl;
+
     }
 };
 
 int main() {
 
-    string roman_numeral;
-    cin >> roman_numeral;
+    /*
+    MCMXCIV
+    */
+
+    /*
+    1994
+    */
 
     Solution mysoln;
-    cout << mysoln.romanToInt(roman_numeral) << endl;
+    mysoln.solve();
     
     return 0;
 }

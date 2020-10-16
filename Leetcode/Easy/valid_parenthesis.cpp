@@ -52,18 +52,27 @@ public:
             return false;   
         
     }
+    
+    void solve() {
+        string str;
+        cin >> str;
+        cout << isValid(str) << endl;
+    }
 };
 
 
 int main() {
     
-    Solution mysoln;
-    
-    string str;
-    cin >> str;
-    
-    cout << mysoln.isValid(str);
-    
+    /*
+    {[]}
+    */
+
+    /*
+    1
+    */
+
+    Solution mysoln;   
+    mysoln.solve();    
     return 0;
 }
 
