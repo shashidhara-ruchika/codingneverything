@@ -6,7 +6,7 @@ Coding N Everything
 ### Contest Solutions
 Monthly Challenge, Lunchtime, Cookoff
 
-### DSA_Learning_Series (https://www.codechef.com/LEARNDSA?itm_campaign=contest_listing)
+### [DSA_Learning_Series](https://www.codechef.com/LEARNDSA?itm_campaign=contest_listing)
 
 1) Complexity Analysis and Basic Warm Up
 2) Linear Data Structures
@@ -15,7 +15,7 @@ Monthly Challenge, Lunchtime, Cookoff
 
 ## Leetcode:
 
-1) Easy Problems (https://leetcode.com/problemset/all/?difficulty=Easy)
+1) [Easy Problems](https://leetcode.com/problemset/all/?difficulty=Easy)
 
     
 
