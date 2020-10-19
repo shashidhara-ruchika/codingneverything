@@ -57,8 +57,8 @@ int main() {
     6
     */
 
-    Solution mysoln;
-    mysoln.solve();
+    Solution soln;
+    soln.solve();
     
     return 0;
 }

@@ -40,8 +40,8 @@ int main () {
     1
     */
 
-    Solution mysoln;
-    mysoln.solve();
+    Solution soln;
+    soln.solve();
     return 0;
 
 }

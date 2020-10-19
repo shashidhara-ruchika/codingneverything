@@ -91,11 +91,11 @@ int main() {
     7
     */
 
-    Solution mysoln_from_front;
-    mysoln_from_front.solve_from_front();
+    Solution soln_from_front;
+    soln_from_front.solve_from_front();
 
-    Solution mysoln_from_back;
-    mysoln_from_back.solve_from_back();
+    Solution soln_from_back;
+    soln_from_back.solve_from_back();
     
     return 0;
 }

@@ -92,12 +92,12 @@ int main() {
     9876
     */ 
 
-    Solution mysoln_str_conv;
-    mysoln_str_conv.solve_str_conversion();   
+    Solution soln_str_conv;
+    soln_str_conv.solve_str_conversion();   
     
     // something else is being printed
-    Solution mysoln_numeric;
-    mysoln_numeric.solve_numeric();  
+    Solution soln_numeric;
+    soln_numeric.solve_numeric();  
 
     return 0;
 }

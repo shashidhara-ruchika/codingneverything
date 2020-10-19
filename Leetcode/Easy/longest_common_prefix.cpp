@@ -115,11 +115,11 @@ int main() {
     
     */
        
-    Solution mysoln;
-    mysoln.solve();
+    Solution soln;
+    soln.solve();
 
-    Solution mysoln_div_conq;
-    mysoln_div_conq.solve_div_conq();
+    Solution soln_div_conq;
+    soln_div_conq.solve_div_conq();
     
     return 0;
 }

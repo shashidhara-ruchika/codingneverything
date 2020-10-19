@@ -60,8 +60,8 @@ int main() {
    5
    */
     
-    Solution mysoln;
-    mysoln.solve();   
+    Solution soln;
+    soln.solve();   
 
     return 0;
 }

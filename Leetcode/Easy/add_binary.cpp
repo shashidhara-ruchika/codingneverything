@@ -58,6 +58,6 @@ int main() {
     1000
     */
    
-    Solution mysoln;
-    mysoln.solve();
+    Solution soln;
+    soln.solve();
 }
