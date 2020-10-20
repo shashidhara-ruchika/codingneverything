@@ -6,16 +6,17 @@ https://leetcode.com/problems/merge-two-sorted-lists/
 
 using namespace std;
 
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode() : val(0), next(nullptr) {}
+    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
+};
+
 class Solution {
-public:
-    struct ListNode {
-        int val;
-        ListNode *next;
-        ListNode() : val(0), next(nullptr) {}
-        ListNode(int x) : val(x), next(nullptr) {}
-        ListNode(int x, ListNode *next) : val(x), next(next) {}
-    };
-    
+
+public:      
     ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
         
         // if any one of the list is empty, return the other list
@@ -57,7 +58,68 @@ public:
             newl -> next = l2;
         
         // return the list after header node
-        return root.next;
+        return root.next;        
+    }
+
+    ListNode* insert_list(int n) {
         
+        if (n == 0) 
+            return NULL;
+        
+        int num;
+        cin >> num;
+        ListNode *root = new ListNode(num);
+        ListNode *curr = root;
+        ListNode *newnode;
+
+        for (int i = 1; i < n; i++) {
+            cin >> num;
+            newnode = new ListNode(num);
+            curr -> next = newnode;
+            curr = curr -> next;
+        }
+        return root;
+    }
+
+    void display_list(ListNode *l) {
+
+        while (l != NULL) {
+            cout << l -> val << " ";
+            l = l -> next;
+        }
+        cout << endl;
+    }
+
+    void solve() {
+        
+        int n1, n2, num;
+        cin >> n1 >> n2;
+
+        ListNode *l1 = insert_list(n1);
+        ListNode *l2 = insert_list(n2);
+
+        ListNode *merged_list = mergeTwoLists(l1, l2); 
+        display_list(merged_list);
+
+        return;
     }
 };
+
+int main() {
+
+    /*
+    3 3
+    1 2 4
+    1 3 4
+    */
+
+    /*
+    1 1 2 3 4 4
+    */
+
+    Solution soln;
+    soln.solve();
+
+    return 0;
+
+}

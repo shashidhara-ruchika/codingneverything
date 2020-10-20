@@ -17,10 +17,12 @@ Monthly Challenge, Lunchtime, Cookoff
 
 1) [Easy Problems](https://leetcode.com/problemset/all/?difficulty=Easy)
 
-    Figure out main funtion for:
-    * merge_two_sorted_lists.cpp
-    * remove_duplicates_from_sorted_list.cpp
+   Figure out main funtion for:
+
+* Trees:    
     * same_tree.cpp
+    * symmetric_tree.cpp
+    * maximum_depth_of_binary_tree.cpp (yet to implement iterative solution as well)
 
     
 
