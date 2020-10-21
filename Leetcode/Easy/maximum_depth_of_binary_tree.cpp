@@ -65,4 +65,5 @@ int main() {
     Solution soln_rec;
     soln_rec.solve_recursive();
 
+    return 0;
 }
