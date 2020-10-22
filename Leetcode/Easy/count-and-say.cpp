@@ -7,7 +7,8 @@ https://leetcode.com/problems/count-and-say/
 using namespace std;
 
 class Solution {    
-private:
+
+public:
     
     string countAndSayString(string s) {
         
@@ -37,8 +38,7 @@ private:
         return concat;
         
     }
-    
-public:
+
     string countAndSay(int n) {
         
         if (n == 1) 

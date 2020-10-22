@@ -17,7 +17,7 @@ struct TreeNode {
 
 class Solution {
 
-private:
+public:    
     int isSameNode(TreeNode *p, TreeNode *q) {
         
         // if both p & q are NULL
@@ -33,8 +33,6 @@ private:
         
         return 1;        
     }    
-
-public:    
 
     bool isSameTree_recursion(TreeNode* p, TreeNode* q) {
         

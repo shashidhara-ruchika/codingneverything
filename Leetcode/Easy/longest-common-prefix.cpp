@@ -8,7 +8,8 @@ using namespace std;
 
 class Solution {
 
-private:
+public:
+
     string commonPrefix(string& s1, string& s2) {
         
         int s1_len = s1.length();
@@ -38,9 +39,7 @@ private:
             string right_lcp = getLongestCommonPrefix(strs, mid + 1, r);
             return commonPrefix(left_lcp, right_lcp);
         }
-    }
-    
-public:
+    }  
 
     // divide & conquer method
     string longestCommonPrefix_div_conq(vector<string>& strs) {

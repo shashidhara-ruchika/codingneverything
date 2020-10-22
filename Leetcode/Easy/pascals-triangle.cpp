@@ -7,7 +7,7 @@ https://leetcode.com/problems/pascals-triangle/
 using namespace std;
 
 class Solution {
-private:
+public:
     vector<int> genNextRow(vector<int> &prev_row) {
         
         vector<int> curr_row;
@@ -19,9 +19,8 @@ private:
         curr_row.push_back(1);
         
         return curr_row;
-    }
-    
-public:
+    }    
+
     vector<vector<int>> generate(int numRows) {
         
         vector<vector<int>> pascalst;

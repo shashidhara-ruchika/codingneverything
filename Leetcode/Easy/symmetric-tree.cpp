@@ -16,7 +16,8 @@ struct TreeNode {
 };
 
 class Solution {
-private:
+
+public:
     bool isMirror(TreeNode* tl, TreeNode* tr) {
         
         if (tl == NULL && tr == NULL)
@@ -30,7 +31,6 @@ private:
         
     }
 
-public:
     bool isSymmetric_recursive(TreeNode* root) {
         
         if (root == NULL)

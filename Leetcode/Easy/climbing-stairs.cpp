@@ -8,7 +8,8 @@ using namespace std;
 
 
 class Solution {
-private:
+
+public:
     int count_ways_dp(int n) {
         
         if (n <= 2) 
@@ -40,12 +41,10 @@ private:
         
         // if value is not present, update the calculated value & return it
         memo[n] = count_ways_recursion(n - 1, memo) + count_ways_recursion(n - 2, memo);
-        return memo[n];
+        return memo[n];        
         
-        
-    }
-    
-public:
+    }    
+
     int climbStairs_recursion(int n) {      
         
         vector<int> memo(n+1, -1);
