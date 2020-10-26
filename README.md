@@ -29,5 +29,10 @@ Monthly Challenge, Lunchtime, Cookoff
     * path-sum.cpp (implemented a very slow algo, yet to implement recursive & iterative algos)
     * convert-sorted-array-to-binary-search-tree.cpp (implemented a very slow algo, yet to implement recursive & iterative algos)
 
+* Stacks
+   * min-stack.cpp (output is not being printed)
+
+* Lists
+   * intersection-of-two-linked-lists.cpp
     
 
