@@ -17,7 +17,7 @@ Monthly Challenge, Lunchtime, Cookoff
 
 1) [Easy Problems](https://leetcode.com/problemset/all/?difficulty=Easy)
 
-   Figure out main funtion for:
+   Yet to complete:
 
 * Trees:    
     * same-tree.cpp
@@ -34,5 +34,16 @@ Monthly Challenge, Lunchtime, Cookoff
 
 * Lists
    * intersection-of-two-linked-lists.cpp
-    
 
+* Bit Manipulation
+   * reverse-bits.cpp      (implement cin, cout for uint32_t)
+   * number-of-1-bits.cpp   (implement cin, cout for uint32_t)
+
+* Strings
+   * strstr.cpp (whole problem, 28)
+
+* Other
+   * majority-element.cpp (implement Boyer-Moore Voting Algorithm)
+
+
+Start from 202 happy number
