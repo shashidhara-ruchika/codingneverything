@@ -16,8 +16,11 @@ Monthly Challenge, Lunchtime, Cookoff
 ## Leetcode:
 
 1) [Easy Problems](https://leetcode.com/problemset/all/?difficulty=Easy)
+2) [Medium Problems](https://leetcode.com/problemset/all/?difficulty=Medium)
 
    Yet to complete:
+
+Easy:   
 
 * Trees:    
     * same-tree.cpp
@@ -46,4 +49,4 @@ Monthly Challenge, Lunchtime, Cookoff
    * majority-element.cpp (implement Boyer-Moore Voting Algorithm)
 
 
-Start from 202 happy number
+Start from 206 reverse linked lists

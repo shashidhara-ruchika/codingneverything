@@ -62,3 +62,59 @@ int main() {
     
     return 0;
 }
+
+
+// C++ without STL for t number of inputs
+
+/*
+#include <iostream>
+using namespace std;
+
+class Solution {
+public:    
+    int maxSubArraySum(int *arr, int n) {
+        
+        if(n == 1)
+            return arr[0];
+        
+        int curr_sum[n];
+        int global_sum[n];
+        
+        curr_sum[0] = arr[0];
+        global_sum[0] = arr[0];
+        
+        for(int i = 1; i < n; i++) {
+            
+            curr_sum[i] = max(curr_sum[i - 1] + arr[i], arr[i]);
+            global_sum[i] = max(global_sum[i -1], curr_sum[i]);
+        }
+        
+        return global_sum[n - 1];
+    }
+    
+    void solve() {
+        int n, num;
+        cin >> n;
+        int arr[n];
+        for(int i = 0; i < n; i++) {
+            cin >> num;
+            arr[i] = num;
+        }
+        cout << maxSubArraySum(arr, n) << endl;
+    }
+    
+};
+
+
+int main() {
+	//code
+	int t;
+	cin >> t;
+	while (t-- > 0) {
+    	Solution soln;
+    	soln.solve();
+	}
+	
+	return 0;
+}
+*/
