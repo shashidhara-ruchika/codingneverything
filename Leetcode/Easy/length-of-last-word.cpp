@@ -62,20 +62,6 @@ public:
         return c; // return the last word count
         
     }
-
-    void solve_from_front() {
-
-        string s;
-        getline(cin,s);
-        cout << lengthOfLastWord_from_front(s) << endl;
-    }
-
-    void solve_from_back() {
-
-        string s;
-        getline(cin,s);
-        cout << lengthOfLastWord_from_back(s) << endl;
-    }
 };
 
 int main() {
@@ -91,11 +77,15 @@ int main() {
     7
     */
 
-    Solution soln_from_front;
-    soln_from_front.solve_from_front();
+    Solution *soln_from_front = new Solution;
+    string s1;
+    getline(cin, s1);
+    cout << soln_from_front -> lengthOfLastWord_from_front(s1) << endl;
 
-    Solution soln_from_back;
-    soln_from_back.solve_from_back();
+    Solution *soln_from_back = new Solution;
+    string s2;
+    getline(cin, s2);
+    cout << soln_from_back -> lengthOfLastWord_from_back(s2) << endl;
     
     return 0;
 }

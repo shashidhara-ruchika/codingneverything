@@ -55,7 +55,7 @@ public:
         return count_ways_dp(n);
     }
 
-    void solve_dp() {
+    /*void solve_dp() {
         int n;
         cin >> n;
         cout << climbStairs_dp(n) << endl;
@@ -65,7 +65,7 @@ public:
         int n;
         cin >> n;
         cout << climbStairs_recursion(n) << endl;
-    }
+    }*/
 };
 
 int main () {
@@ -79,11 +79,15 @@ int main () {
     8
     */
 
-    Solution soln_dp;
-    soln_dp.solve_dp();
+    Solution *soln_dp = new Solution;
+    int n1;
+    cin >> n1;
+    cout << soln_dp -> climbStairs_dp(n1) << endl;
 
-    Solution soln_rec;
-    soln_rec.solve_recursion();
+    Solution *soln_rec = new Solution;
+    int n2;
+    cin >> n2;
+    cout << soln_rec -> climbStairs_recursion(n2) << endl;
 
     return 0;
 }

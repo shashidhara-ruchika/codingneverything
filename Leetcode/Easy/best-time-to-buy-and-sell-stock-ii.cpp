@@ -42,31 +42,17 @@ public:
         return max_profit;
     }
 
-    void solve_simple() {
-
+    vector<int> inputVec() {
         int n, num;
         cin >> n;
-        vector<int> prices;
-        for(int i = 0; i < n; i++) {
+        vector<int> vec;
+        while(n-- > 0) {
             cin >> num;
-            prices.push_back(num);
+            vec.push_back(num);
         }
-
-        cout << maxProfit_simple(prices) << endl;
+        return vec;
     }
 
-    void solve() {
-        
-        int n, num;
-        cin >> n;
-        vector<int> prices;
-        for(int i = 0; i < n; i++) {
-            cin >> num;
-            prices.push_back(num);
-        }
-
-        cout << maxProfit(prices) << endl;
-    }
 };
 
 int main() {
@@ -83,11 +69,13 @@ int main() {
     4
     */
 
-    Solution soln1;
-    soln1.solve_simple();
+    Solution *soln1 = new Solution;
+    vector<int> prices1 = soln1 -> inputVec();
+    cout << soln1 -> maxProfit_simple(prices1) << endl;    
 
-    Solution soln2;
-    soln2.solve();
+    Solution *soln2 = new Solution;
+    vector<int> prices2 = soln1 -> inputVec();
+    cout << soln1 -> maxProfit_simple(prices2) << endl;
 
     return 0;
 }

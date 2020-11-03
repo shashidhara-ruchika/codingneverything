@@ -24,12 +24,6 @@ public:
         }
         return num_trailing_zeroes;
     }
-
-    void solve() {
-        int n;
-        cin >> n;
-        cout << trailingZeroes(n) << endl;
-    }
 };
 
 int main() {
@@ -42,8 +36,10 @@ int main() {
     12
     */
     
-    Solution soln;
-    soln.solve();
+    Solution *soln = new Solution;
+    int n;
+    cin >> n;
+    cout << soln -> trailingZeroes(n) << endl;
 
     return 0;
 }

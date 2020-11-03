@@ -44,10 +44,7 @@ public:
         
     }
 
-    void solve() {
-        int n;
-        cin >> n;
-        vector<vector<int>> pascals_triangle = generate(n);
+    void display(vector<vector<int>>& pascals_triangle) {        
 
         for(int i = 0; i < pascals_triangle.size(); i++) {
             for(int j = 0; j < pascals_triangle[i].size(); j++) {
@@ -72,8 +69,11 @@ int main() {
     1 4 6 4 1
     */
 
-    Solution soln;
-    soln.solve();
+    Solution *soln = new Solution;
+    int n;
+    cin >> n;
+    vector<vector<int>> pascals_triangle = soln -> generate(n);
+    soln -> display(pascals_triangle);    
 
     return 0;
 }

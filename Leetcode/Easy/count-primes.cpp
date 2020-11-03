@@ -41,12 +41,6 @@ public:
         }
         return count;
     }
-
-    void solve() {
-        int n;
-        cin >> n;
-        cout << countPrimes(n) << endl;
-    }
 };
 
 int main() {
@@ -59,8 +53,10 @@ int main() {
     9
     */
 
-    Solution soln;
-    soln.solve();
+    Solution *soln = new Solution;
+    int n;
+    cin >> n;
+    cout << soln -> countPrimes(n) << endl;
 
     return 0;
 }

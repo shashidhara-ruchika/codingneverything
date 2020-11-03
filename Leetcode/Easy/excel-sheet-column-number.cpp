@@ -20,11 +20,6 @@ public:
         
         return sum;
     }
-    void solve() {
-        string column;
-        cin >> column;
-        cout << titleToNumber(column) << endl;
-    }
 };
 
 int main() {
@@ -36,8 +31,11 @@ int main() {
     /*
     100
     */
-    Solution soln;
-    soln.solve();
+    
+    Solution *soln = new Solution;
+    string column;
+    cin >> column;
+    cout << soln -> titleToNumber(column) << endl;
 
     return 0;
 }

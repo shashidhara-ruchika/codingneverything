@@ -64,23 +64,6 @@ public:
             arr[i] = num;
         }
     }
-
-    void solve() {
-
-        int n1, n2;
-        cin >> n1;
-        cin >> n2;
-        vector<int> nums1(n1 + n2, 0);
-        vector<int> nums2(n2, 0);        
-        insert_array(nums1, n1);
-        insert_array(nums2, n2);
-
-        merge(nums1, n1, nums2, n2);
-        
-        for(int i = 0; i < n1 + n2; i++)
-            cout << nums1[i] << " ";
-        cout << endl;
-    }
 };
 
 int main() {
@@ -95,8 +78,20 @@ int main() {
     1 2 4 5 7 8
     */
     
-    Solution soln;
-    soln.solve();
+    Solution *soln = new Solution;
+    int n1, n2;
+    cin >> n1;
+    cin >> n2;
+    vector<int> nums1(n1 + n2, 0);
+    vector<int> nums2(n2, 0);        
+    soln -> insert_array(nums1, n1);
+    soln -> insert_array(nums2, n2);
+
+    soln -> merge(nums1, n1, nums2, n2);
+    
+    for(int i = 0; i < n1 + n2; i++)
+        cout << nums1[i] << " ";
+    cout << endl;
 
     return 0;
 }

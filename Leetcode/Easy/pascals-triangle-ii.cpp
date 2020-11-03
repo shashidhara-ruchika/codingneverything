@@ -35,12 +35,8 @@ public:
         }
         return row;
     }
-
-    void solve() {
-        int n;
-        cin >> n;
-        vector<int> pascals_rowi = getRow(n);
-
+        
+    void display(vector<int>& pascals_rowi) {
         for(int i = 0; i < pascals_rowi.size(); i++)
             cout << pascals_rowi[i] << " ";
         cout << endl;
@@ -57,8 +53,11 @@ int main() {
     1 5 10 10 5 1
     */
 
-    Solution soln;
-    soln.solve();
+    Solution *soln = new Solution;
+    int n;
+    cin >> n;
+    vector<int> pascals_rowi = soln -> getRow(n);
+    soln -> display(pascals_rowi);
 
     return 0;
 }

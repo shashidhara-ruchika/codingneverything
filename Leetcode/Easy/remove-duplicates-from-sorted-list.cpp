@@ -65,19 +65,6 @@ public:
         }
         cout << endl;
     }
-
-    void solve() {
-
-        int n;
-        cin >> n;
-        
-        ListNode *l = insert_list(n);
-
-        ListNode *newl = deleteDuplicates(l);
-        display_list(newl);
-
-        return;
-    }
 };
 
 int main() {
@@ -91,8 +78,14 @@ int main() {
     1 2 3 
     */
     
-    Solution soln;
-    soln.solve();
+    Solution *soln = new Solution;
+    int n;
+    cin >> n;
+    ListNode* l = soln -> insert_list(n);
+
+    ListNode* newl = soln -> deleteDuplicates(l);
+
+    soln -> display_list(newl);
 
     return 0;
 }

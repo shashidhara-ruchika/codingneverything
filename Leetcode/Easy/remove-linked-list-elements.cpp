@@ -70,20 +70,6 @@ public:
         }
         cout << endl;
     }
-
-    void solve() {
-
-        int n;
-        cin >> n;
-        ListNode *l = insert_list(n);
-
-        int val;
-        cin >> val;
-
-        ListNode *l_no_val = removeElements(l, val);
-        display_list(l_no_val);
-    }
-
 };
 
 int main() {
@@ -98,8 +84,16 @@ int main() {
     1 2 3 4 5
     */
     
-    Solution soln;
-    soln.solve();
+    Solution *soln = new Solution;
+    int n;
+    cin >> n;
+    ListNode *l = soln -> insert_list(n);
+    int val;
+    cin >> val;
+    
+    ListNode *l_no_val = soln -> removeElements(l, val);
+    
+    soln -> display_list(l_no_val);
 
     return 0;
 }

@@ -147,26 +147,6 @@ public:
         }
         cout << endl;
     }
-
-    void solve_n3_algo() {
-        int n;
-        cin >> n;
-        ListNode *l = insert_list(n);
-
-        ListNode *sorted_l = insertionSortList_n3_algo(l);
-
-        display_list(sorted_l);
-    }
-
-    void solve() {
-        int n;
-        cin >> n;
-        ListNode *l = insert_list(n);
-
-        ListNode *sorted_l = insertionSortList(l);
-
-        display_list(sorted_l);
-    }
 };
 
 int main() {
@@ -182,11 +162,19 @@ int main() {
     0 3 6 7
     */
    
-   Solution soln;
-   soln.solve();
+   Solution *soln = new Solution;
+   int n1;
+   cin >> n1;
+   ListNode *l1 = soln -> insert_list(n1);
+   ListNode *sorted_l1 = soln -> insertionSortList(l1);
+   soln -> display_list(sorted_l1);
    
-   Solution soln_n3_algo;
-   soln_n3_algo.solve_n3_algo();
+   Solution *soln_n3_algo = new Solution;
+   int n2;
+   cin >> n2;
+   ListNode *l2 = soln_n3_algo -> insert_list(n2);
+   ListNode *sorted_l2 = soln_n3_algo -> insertionSortList(l2);
+   soln_n3_algo -> display_list(sorted_l2);
     
-    return 0;
+   return 0;
 }

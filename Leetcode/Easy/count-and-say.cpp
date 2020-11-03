@@ -8,8 +8,7 @@ using namespace std;
 
 class Solution {    
 
-public:
-    
+public:    
     string countAndSayString(string s) {
         
         if (s == "1") {
@@ -51,12 +50,6 @@ public:
         return s1;
         
     }
-
-    void solve() {
-        int n;
-        cin >> n;
-        cout << countAndSay(n) << endl;
-    }
 };
 
 int main() {
@@ -69,8 +62,10 @@ int main() {
     13112221
     */
 
-    Solution soln;
-    soln.solve();
+    Solution *soln = new Solution;
+    int n;
+    cin >> n;
+    cout << soln -> countAndSay(n) << endl;
 
     return 0;
 }

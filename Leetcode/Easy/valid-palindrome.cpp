@@ -32,12 +32,6 @@ public:
         
         return true;        
     }
-
-    void solve() {
-        string s;
-        cin >> s;
-        cout << isPalindrome(s);
-    }
 };
 
 int main() {
@@ -50,8 +44,10 @@ int main() {
     1
     */
 
-    Solution soln;
-    soln.solve();
+    Solution *soln = new Solution;
+    string s;
+    cin >> s;
+    cout << soln -> isPalindrome(s) << endl;
 
     return 0;
 }

@@ -34,7 +34,7 @@ public:
         
     }
 
-    void solve() {
+    vector<int> input() {
         
         int n, num;
         cin >> n;
@@ -43,12 +43,7 @@ public:
             cin >> num;
             digits.push_back(num);
         }
-
-        vector<int> digits_plus_one = plusOne(digits);
-        
-        for (auto i : digits_plus_one) 
-            cout << i << " ";   
-        cout << endl;
+        return digits;
     }
 };
 
@@ -63,8 +58,14 @@ int main() {
     400
     */
 
-    Solution soln;
-    soln.solve();
+    Solution *soln = new Solution;
+    vector<int> digits = soln -> input();
+    
+    vector<int> digits_plus_one = soln -> plusOne(digits);
+        
+    for (auto i : digits_plus_one) 
+        cout << i << " ";   
+    cout << endl;
 
     return 0;
 

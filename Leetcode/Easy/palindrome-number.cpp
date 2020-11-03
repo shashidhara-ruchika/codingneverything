@@ -21,13 +21,6 @@ public:
         
         return true;
     }
-
-    void solve() {
-        int n;
-        cin >> n;
-        bool palin = isPalindrome(n);
-        cout << palin << endl;
-    }
 };
 
 int main () {
@@ -40,8 +33,10 @@ int main () {
     1
     */
 
-    Solution soln;
-    soln.solve();
+    Solution *soln = new Solution;
+    int n;
+    cin >> n;
+    cout << soln -> isPalindrome(n) << endl;
     return 0;
 
 }

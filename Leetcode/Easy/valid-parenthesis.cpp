@@ -52,12 +52,6 @@ public:
             return false;   
         
     }
-    
-    void solve() {
-        string str;
-        cin >> str;
-        cout << isValid(str) << endl;
-    }
 };
 
 
@@ -71,8 +65,11 @@ int main() {
     1
     */
 
-    Solution soln;   
-    soln.solve();    
+    Solution *soln = new Solution;
+    string s;
+    cin >> s;
+    cout << soln -> isValid(s) << endl;
+
     return 0;
 }
 

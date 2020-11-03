@@ -31,12 +31,6 @@ public:
         }
         return l;               
     }
-
-    void solve() {
-        int x;
-        cin >> x;
-        cout << mySqrt(x) << endl;
-    }
 };
 
 int main() {
@@ -49,8 +43,10 @@ int main() {
     2
     */
     
-    Solution soln;
-    soln.solve();
+    Solution *soln = new Solution;
+    int n;
+    cin >> n;
+    cout << soln -> mySqrt(n) << endl;
 
     return 0;
 }

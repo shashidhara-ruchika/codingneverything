@@ -32,7 +32,7 @@ public:
         
     }
 
-    void solve() {
+    vector<int> inputArr() {
 
         int n, num;
         cin >> n;
@@ -41,12 +41,7 @@ public:
             cin >> num;
             arr.push_back(num);
         }
-
-        moveZeroes(arr);
-
-        displayArray(arr);
-
-        return;
+        return arr;
     }
 };
 /*
@@ -68,8 +63,12 @@ int main() {
     1 -3 12 0 0
     */
 
-    Solution soln;
-    soln.solve();
+    Solution *soln = new Solution;
+    vector<int> arr = soln -> inputArr();
+    
+    soln -> moveZeroes(arr);
+
+    soln -> displayArray(arr);
 
     return 0;
 }

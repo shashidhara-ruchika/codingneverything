@@ -58,8 +58,10 @@ int main() {
     1994
     */
 
-    Solution soln;
-    soln.solve();
+    Solution *soln = new Solution;
+    string roman_numeral;
+    cin >> roman_numeral;
+    cout << soln -> romanToInt(roman_numeral) << endl;
     
     return 0;
 }

@@ -92,14 +92,7 @@ public:
 
     void solve() {
         
-        int n1, n2, num;
-        cin >> n1 >> n2;
-
-        ListNode *l1 = insert_list(n1);
-        ListNode *l2 = insert_list(n2);
-
-        ListNode *merged_list = mergeTwoLists(l1, l2); 
-        display_list(merged_list);
+        
 
         return;
     }
@@ -117,8 +110,15 @@ int main() {
     1 1 2 3 4 4
     */
 
-    Solution soln;
-    soln.solve();
+    Solution *soln = new Solution;
+    int n1, n2, num;
+    cin >> n1 >> n2;
+
+    ListNode *l1 = soln -> insert_list(n1);
+    ListNode *l2 = soln -> insert_list(n2);
+
+    ListNode *merged_list = soln -> mergeTwoLists(l1, l2); 
+    soln -> display_list(merged_list);
 
     return 0;
 

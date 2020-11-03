@@ -33,7 +33,7 @@ public:
         return global_sum[len - 1];
     }
 
-    void solve() {
+    vector<int> inputArr() {
 
         int n, num;
         cin >> n;
@@ -42,7 +42,8 @@ public:
             cin >> num;
             arr.push_back(num);
         }
-        cout << maxSubArray(arr) << endl;
+        return arr;
+        
     }
 };
 
@@ -57,8 +58,9 @@ int main() {
     6
     */
 
-    Solution soln;
-    soln.solve();
+    Solution *soln = new Solution;
+    vector<int> arr = soln -> inputArr();
+    cout << soln -> maxSubArray(arr) << endl;
     
     return 0;
 }

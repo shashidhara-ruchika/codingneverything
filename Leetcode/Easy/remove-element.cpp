@@ -26,26 +26,17 @@ public:
         return slow;
     }
 
-    void solve() {
+    vector<int> inputArr() {
     
-        int n, val, v;
+        int n, v;
         cin >> n;
         vector<int> arr;
         while(n-- > 0) {
             cin >> v;
             arr.push_back(v);
         }
-        cin >> val;
-
-        int new_len = removeElement(arr, val);
-        cout << new_len << endl;
-        
-        /*
-        for(int i = 0; i < new_len; i++) 
-            cout << arr[i] << " ";
-        cout << endl;
-        */
-    }
+        return arr;
+    }        
 };
 
 int main() {
@@ -60,8 +51,12 @@ int main() {
    5
    */
     
-    Solution soln;
-    soln.solve();   
+    Solution *soln = new Solution;
+    vector<int> arr = soln -> inputArr();
+    int val;
+    cin >> val;
+    
+    cout << soln -> removeElement(arr, val) << endl;
 
     return 0;
 }

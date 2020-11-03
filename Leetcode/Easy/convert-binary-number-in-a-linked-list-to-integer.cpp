@@ -53,30 +53,24 @@ public:
         }
         return root;
     }
-
-    void solve() {
-
-        int n;
-        cin >> n;        
-        ListNode *l = insert_list(n);
-
-        cout << getDecimalValue(l) << endl;        
-
-        return;
-    }
 };
 
 int main() {
 
     /*
     15
-    [1,0,0,1,0,0,1,1,1,0,0,0,0,0,0]
+    1 0 0 1 0 0 1 1 1 0 0 0 0 0 0
     */
 
     /*
     18880
     */
 
-    Solution soln;
-    soln.solve();
+    Solution *soln = new Solution;
+    int n;
+    cin >> n;
+    ListNode *l = soln -> insert_list(n);
+    cout << soln -> getDecimalValue(l) << endl;
+    
+    return 0;
 }

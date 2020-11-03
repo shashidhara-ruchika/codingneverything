@@ -39,13 +39,6 @@ public:
         }
         return result;        
     }
-
-    void solve() {
-        string a, b, c;
-        cin >> a >> b;
-        c = addBinary(a, b);
-        cout << c << endl;
-    }
 };
 
 int main() {
@@ -58,8 +51,12 @@ int main() {
     1000
     */
    
-    Solution soln;
-    soln.solve();
+    Solution *soln = new Solution;
+
+    string a, b;
+    cin >> a >> b;
+
+    cout << soln -> addBinary(a,b) << endl;
 
     return 0;
 }

@@ -55,25 +55,14 @@ public:
         cout << endl;
     }
 
-    void solve() {
-
-        int n;
-        cin >> n;
-        string s;
+    vector<string> inputVec(int n) {
         vector<string> strs;
-        while(n-- > 0) {
+        string s;
+        while (n-- > 0) {
             cin >> s;
             strs.push_back(s);
         }
-
-        vector<vector<string>> grouped_anagrams = groupAnagrams(strs);
-
-        for (auto group: grouped_anagrams) {
-            printVec(group);
-        }
-        cout << endl;
-
-        return;
+        return strs;
     }
 }; 
 
@@ -90,8 +79,17 @@ int main() {
     eat tea ate
     */
     
-    Solution soln;
-    soln.solve();
+    Solution *soln = new Solution;
+    int n;
+    cin >> n;
+    vector<string> strs = soln -> inputVec(n);
+
+    vector<vector<string>> grouped_anagrams = soln -> groupAnagrams(strs);
+
+    for (auto group: grouped_anagrams) {
+        soln -> printVec(group);
+    }
+    cout << endl;
 
     return 0;
 }

@@ -45,12 +45,6 @@ public:
         }
         return false;        
     }
-
-    void solve() {
-        int n;
-        cin >> n;
-        cout << isHappy(n) << endl;
-    }
 };
 
 int main() {
@@ -63,8 +57,10 @@ int main() {
     0
     */
 
-    Solution soln;
-    soln.solve();
+    Solution *soln = new Solution;
+    int n;
+    cin >> n;
+    cout << soln -> isHappy(n) << endl;
 
     return 0;
 }

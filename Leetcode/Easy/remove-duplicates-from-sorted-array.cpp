@@ -27,7 +27,7 @@ public:
         return slow + 1;
     }
 
-    void solve() {
+    vector<int> inputArr() {
 
         int n, v;
         cin >> n;
@@ -36,17 +36,9 @@ public:
             cin >> v;
             arr.push_back(v);
         }
-
-        int sorted_till_n = removeDuplicates(arr);
-        cout << sorted_till_n << endl;
-        
-        /*
-        for(int i = 0; i < sorted_till_n; i++) 
-            cout << arr[i] << " ";
-        cout << endl;
-        */
-
+        return arr;
     }
+       
 };
 
 int main() {
@@ -60,8 +52,9 @@ int main() {
     5
     */
     
-    Solution soln;
-    soln.solve();   
+    Solution *soln = new Solution;
+    vector<int> arr = soln -> inputArr();
+    cout << soln -> removeDuplicates(arr) << endl;  
 
     return 0;
 }

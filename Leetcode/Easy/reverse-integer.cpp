@@ -66,18 +66,6 @@ public:
         return 0;
                       
     }
-
-    void solve_numeric() {        
-        int n;
-        cin >> n;
-        cout << reverse_int(n) << endl;
-    }
-
-    void solve_str_conversion() {
-        int n;
-        cin >> n;
-        cout << reverse_str(n) << endl;
-    }
 };
 
 int main() {
@@ -92,12 +80,15 @@ int main() {
     9876
     */ 
 
-    Solution soln_str_conv;
-    soln_str_conv.solve_str_conversion();   
+    Solution *soln_str_conv = new Solution;
+    int n1;
+    cin >> n1;
+    cout << soln_str_conv -> reverse_str(n1) << endl;   
     
-    // something else is being printed
-    Solution soln_numeric;
-    soln_numeric.solve_numeric();  
+    Solution *soln_numeric = new Solution;
+    int n2;
+    cin >> n2;
+    cout << soln_numeric -> reverse_int(n2) << endl;  
 
     return 0;
 }

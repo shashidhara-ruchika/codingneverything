@@ -66,18 +66,6 @@ public:
 
         return root;
     }
-
-    void solve() {
-
-        int n, pos;
-        cin >> n >> pos;
-
-        ListNode* l = insert_list(n, pos);
-
-        cout << hasCycle(l) << endl;
-
-        return;
-    }
 };
 
 
@@ -92,8 +80,13 @@ int main() {
     1
     */
    
-    Solution soln;
-    soln.solve();
+    Solution *soln = new Solution;
+    int n, pos;
+    cin >> n >> pos;
+
+    ListNode* l = soln -> insert_list(n, pos);
+
+    cout << soln -> hasCycle(l) << endl;
 
     return 0;
 }

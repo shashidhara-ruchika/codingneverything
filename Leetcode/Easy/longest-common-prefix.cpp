@@ -70,8 +70,7 @@ public:
 
     }
 
-    void solve_div_conq() {
-        
+    vector<string> inputVecStrings() {
         int n;
         string s;
         vector<string> strs;
@@ -81,23 +80,8 @@ public:
             cin >> s;
             strs.push_back(s);
         }
-        cout << longestCommonPrefix_div_conq(strs) << endl;
-    }
-
-    void solve() {
-        
-        int n;
-        string s;
-        vector<string> strs;
-
-        cin >> n;
-        while(n-- > 0) {
-            cin >> s;
-            strs.push_back(s);
-        }
-        cout << longestCommonPrefix(strs) << endl;
-    }
-   
+        return strs;
+    }   
 };
 
 int main() {
@@ -114,11 +98,13 @@ int main() {
     
     */
        
-    Solution soln;
-    soln.solve();
+    Solution *soln = new Solution;
+    vector<string> strarr1 = soln -> inputVecStrings();
+    cout << soln -> longestCommonPrefix(strarr1) << endl;
 
-    Solution soln_div_conq;
-    soln_div_conq.solve_div_conq();
+    Solution *soln_div_conq = new Solution;
+    vector<string> strarr2 = soln -> inputVecStrings();
+    cout << soln_div_conq -> longestCommonPrefix_div_conq(strarr2) << endl;
     
     return 0;
 }

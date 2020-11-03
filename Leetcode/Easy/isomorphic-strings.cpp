@@ -36,12 +36,6 @@ public:
         }
         return true;
     }
-
-    void solve() {
-        string s, t;
-        cin >> s >> t;
-        cout << isIsomorphic(s, t) << endl;
-    }
 };
 
 int main() {
@@ -54,8 +48,10 @@ int main() {
     1
     */
 
-    Solution soln;
-    soln.solve();
+    Solution *soln = new Solution;
+    string s, t;
+    cin >> s >> t;
+    cout << soln -> isIsomorphic(s, t) << endl;
 
     return 0;
 }

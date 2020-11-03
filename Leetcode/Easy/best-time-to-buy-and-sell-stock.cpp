@@ -24,7 +24,18 @@ public:
         return max_profit;
     }
 
-    void solve() {
+    vector<int> inputVec() {
+        int n, num;
+        cin >> n;
+        vector<int> vec;
+        while(n-- > 0) {
+            cin >> num;
+            vec.push_back(num);
+        }
+        return vec;
+    }
+
+    /*void solve() {
 
         int n, num;
         cin >> n;
@@ -35,7 +46,7 @@ public:
         }
 
         cout << maxProfit(prices) << endl;
-    }
+    }*/
 };
 
 int main() {
@@ -49,8 +60,9 @@ int main() {
     5
     */
 
-    Solution soln;
-    soln.solve();
+    Solution *soln = new Solution;
+    vector<int> prices = soln -> inputVec();
+    cout << soln -> maxProfit(prices) << endl;
 
     return 0;
 }

@@ -26,9 +26,9 @@ public:
     }  
 
     
-    void solve() {
+    vector<int> inputArr() {
 
-        int n, target, num;
+        int n, num;
         vector<int> nums;        
         
         cin >> n;
@@ -36,13 +36,8 @@ public:
             cin >> num;
             nums.push_back(num);
         }
-        cin >> target;
 
-        vector<int> sum_pair;
-
-        sum_pair = twoSum(nums, target);
-        cout << sum_pair[0] << " " << sum_pair[1] << endl;      
-        
+        return nums;             
     }  
         
 };
@@ -59,8 +54,16 @@ int main() {
     0 1
     */
 
-    Solution soln;
-    soln.solve();
+    Solution *soln = new Solution;
+
+    vector<int> nums = soln -> inputArr();
+    int target;
+    cin >> target;
+    
+    vector<int> sum_pair = soln -> twoSum(nums, target);
+    
+    cout << sum_pair[0] << " " << sum_pair[1] << endl;
+    
     return 0;
 
 }

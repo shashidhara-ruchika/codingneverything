@@ -34,7 +34,7 @@ public:
         return running_total[nums.size() - 1];
     }
 
-    void solve() {
+    vector<int> inputVec() {
         int n, num;
         cin >> n;
         vector<int> nums;
@@ -42,7 +42,7 @@ public:
             cin >> num;
             nums.push_back(num);
         }
-        cout << rob(nums) << endl;
+        return nums;
     }
 };
 
@@ -51,15 +51,16 @@ int main() {
 
     /*
     5
-    8, 1,  3, 10,  7
+    8 1 3 10 7
     */
    
     /*
     18
     */
 
-    Solution soln;
-    soln.solve();
+    Solution *soln = new Solution;
+    vector<int> arr = soln -> inputVec();
+    cout << soln -> rob(arr) << endl;
 
     return 0;
 }

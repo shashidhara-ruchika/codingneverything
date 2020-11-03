@@ -53,7 +53,7 @@ public:
         return {0, 0};       
     }
 
-    void solve_twopointer() {
+    vector<int> inputArr() {
 
         int n, target, num;
         vector<int> nums;       
@@ -62,28 +62,8 @@ public:
             cin >> num;
             nums.push_back(num);
         }
-        cin >> target;
-
-        vector<int> sum_pair = twoSum_twopointer(nums, target);
-
-        cout << sum_pair[0] << " " << sum_pair[1] << endl;     
-    } 
-
-    void solve_unorderedmap() {
-
-        int n, target, num;
-        vector<int> nums;       
-        cin >> n;
-        for(int i = 0; i < n; i++) {
-            cin >> num;
-            nums.push_back(num);
-        }
-        cin >> target;
-
-        vector<int> sum_pair = twoSum_unorderedmap(nums, target);
-
-        cout << sum_pair[0] << " " << sum_pair[1] << endl;              
-    } 
+        return nums;
+    }
 };
 
 int main() {
@@ -98,8 +78,15 @@ int main() {
     1 2
     */
 
-    Solution soln_twopointer;
-    soln_twopointer.solve_twopointer();
+    Solution *soln_twopointer = new Solution;
+    vector<int> nums1 = soln_twopointer -> inputArr();
+    int target1;    
+    cin >> target1;
+
+    vector<int> sum_pair1 = soln_twopointer -> twoSum_twopointer(nums1, target1);
+
+    cout << sum_pair1[0] << " " << sum_pair1[1] << endl;       
+    
 
     /*
     3
@@ -111,8 +98,15 @@ int main() {
     1 2
     */
    
-    Solution soln_unorderedmap;
-    soln_unorderedmap.solve_unorderedmap();
+   Solution *soln_unorderedmap = new Solution;
+    vector<int> nums2 = soln_unorderedmap -> inputArr();
+    int target2;    
+    cin >> target2;
+
+    vector<int> sum_pair2 = soln_unorderedmap -> twoSum_twopointer(nums2, target2);
+
+    cout << sum_pair2[0] << " " << sum_pair2[1] << endl;   
+   
 
 
 }

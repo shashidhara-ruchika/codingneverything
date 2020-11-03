@@ -61,7 +61,7 @@ public:
         return a;
     }
 
-    void solve_map() {
+    vector<int> inputArr() {
         int n, num;
         cin >> n;
         vector<int> nums;
@@ -69,29 +69,8 @@ public:
             cin >> num;
             nums.push_back(num);
         }
-        cout << singleNumber_map(nums) << endl;
-    }
-
-    void solve_set() {
-        int n, num;
-        cin >> n;
-        vector<int> nums;
-        for(int i = 0; i < n; i++) {
-            cin >> num;
-            nums.push_back(num);
-        }
-        cout << singleNumber_set(nums) << endl;
-    }
-
-    void solve_xor() {
-        int n, num;
-        cin >> n;
-        vector<int> nums;
-        for(int i = 0; i < n; i++) {
-            cin >> num;
-            nums.push_back(num);
-        }
-        cout << singleNumber_xor(nums) << endl;
+        return nums;
+        
     }
 };
 
@@ -113,10 +92,18 @@ int main() {
     4
     */
 
-    Solution soln_map, soln_set, soln_xor;
-    soln_map.solve_map();
-    soln_set.solve_set();
-    soln_xor.solve_xor();
+    Solution *soln_map = new Solution;
+    Solution *soln_set = new Solution;
+    Solution *soln_xor = new Solution;
+
+    vector<int> nums1 = soln_map -> inputArr();
+    cout << soln_map -> singleNumber_map(nums1) << endl;
+
+    vector<int> nums2 = soln_map -> inputArr();
+    cout << soln_set -> singleNumber_set(nums2) << endl;
+
+    vector<int> nums3 = soln_map -> inputArr();
+    cout << soln_xor -> singleNumber_xor(nums3) << endl;
 
     return 0;
 }

@@ -25,13 +25,6 @@ public:
         }
         return title;        
     }
-
-    void solve() {
-        int n;
-        cin >> n;
-        string excel_title = convertToTitle(n);
-        cout << excel_title << endl;
-    }
 };
 
 int main() {
@@ -44,8 +37,10 @@ int main() {
     CV
     */
    
-    Solution soln;
-    soln.solve();
+    Solution *soln = new Solution;
+    int n;
+    cin >> n;
+    cout << soln -> convertToTitle(n) << endl;
 
     return 0;
 }
