@@ -31,6 +31,12 @@ Easy:
     * minimum-depth-of-binary-tree.cpp (implemented a very slow algo, yet to implement recursive & iterative algos)
     * path-sum.cpp (implemented a very slow algo, yet to implement recursive & iterative algos)
     * convert-sorted-array-to-binary-search-tree.cpp (implemented a very slow algo, yet to implement recursive & iterative algos)
+    * binary-tree-tilt.cpp
+    * binary-tree-preorder-traversal.cpp
+    * binary-tree-postorder-traversal.cpp
+    * binary-tree-inorder-traversal.cpp
+    * binary-tree-level-order-traversal.cpp
+    
 
 * Stacks
    * min-stack.cpp (output is not being printed)
@@ -47,6 +53,11 @@ Easy:
 
 * Other
    * majority-element.cpp (implement Boyer-Moore Voting Algorithm)
+   * first-bad-version.cpp (implement correct costructor class in main)
 
+Medium
+   * maximum-difference-between-node-and-ancestor.cpp (implement iterative solution)
+   * populating-next-right-pointers-in-each-node.cpp (implement recursive solution)
+   * find-a-corresponding-node-of-a-binary-tree-in-a-clone-of-that-tree.cpp 
 
 Start from 206 reverse linked lists
