@@ -1,26 +1,7 @@
 # codingneverything
 Coding N Everything
 
-## Codechef:
-
-### Contest Solutions
-Monthly Challenge, Lunchtime, Cookoff
-
-### [DSA Learning Series](https://www.codechef.com/LEARNDSA?itm_campaign=contest_listing)
-
-1) Complexity Analysis and Basic Warm Up
-2) Linear Data Structures
-3) Standard Template Library
-
-
-## Leetcode:
-
-1) [Easy Problems](https://leetcode.com/problemset/all/?difficulty=Easy)
-2) [Medium Problems](https://leetcode.com/problemset/all/?difficulty=Medium)
-
-   Yet to complete:
-
-Easy:   
+Yet to complete:  
 
 * Trees:    
     * same-tree.cpp
@@ -36,29 +17,31 @@ Easy:
     * binary-tree-postorder-traversal.cpp
     * binary-tree-inorder-traversal.cpp
     * binary-tree-level-order-traversal.cpp
-    
+    * find-a-corresponding-node-of-a-binary-tree-in-a-clone-of-that-tree.cpp 
+    * validate-binary-search-tree.cpp
+    * maximum-difference-between-node-and-ancestor.cpp (implement iterative solution)
+    * populating-next-right-pointers-in-each-node.cpp (implement recursive solution)    
 
 * Stacks
    * min-stack.cpp (output is not being printed)
 
-* Lists
+* Linked_Lists
    * intersection-of-two-linked-lists.cpp
 
-* Bit Manipulation
+* Bits
    * reverse-bits.cpp      (implement cin, cout for uint32_t)
    * number-of-1-bits.cpp   (implement cin, cout for uint32_t)
 
 * Strings
    * strstr.cpp (whole problem, 28)
 
-* Other
+* Arrays
    * majority-element.cpp (implement Boyer-Moore Voting Algorithm)
+
+* Searching
    * first-bad-version.cpp (implement correct costructor class in main)
 
-Medium
-   * maximum-difference-between-node-and-ancestor.cpp (implement iterative solution)
-   * populating-next-right-pointers-in-each-node.cpp (implement recursive solution)
-   * find-a-corresponding-node-of-a-binary-tree-in-a-clone-of-that-tree.cpp 
-   * validate-binary-search-tree.cpp
+
+Organize Codechef Soln, add ans from OCT20B
 
 Start from 206 reverse linked lists
