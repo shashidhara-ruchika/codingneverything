@@ -59,5 +59,6 @@ Medium
    * maximum-difference-between-node-and-ancestor.cpp (implement iterative solution)
    * populating-next-right-pointers-in-each-node.cpp (implement recursive solution)
    * find-a-corresponding-node-of-a-binary-tree-in-a-clone-of-that-tree.cpp 
+   * validate-binary-search-tree.cpp
 
 Start from 206 reverse linked lists

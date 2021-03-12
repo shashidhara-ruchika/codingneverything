@@ -1,5 +1,6 @@
 /*
 https://leetcode.com/problems/maximum-subarray/
+https://practice.geeksforgeeks.org/problems/kadanes-algorithm-1587115620/1
 */
 
 # include <bits/stdc++.h>
@@ -15,22 +16,18 @@ public:
     int maxSubArray(vector<int>& nums) {
         
         int len = nums.size();
-        
+
         if(len == 1)
             return nums[0];
         
-        vector<long int> curr_sum(len);
-        vector<long int> global_sum(len);
-        
-        curr_sum[0] = (long int)nums[0];
-        global_sum[0] = (long int)nums[0];
+        int curr_sum = nums[0], global_sum = nums[0];       
         
         for(int i = 1; i < len; i++) {            
-            curr_sum[i] = max(curr_sum[i - 1] + (long int)nums[i], (long int)nums[i]);
-            global_sum[i] = max(global_sum[i - 1], curr_sum[i]);
+            curr_sum = max(curr_sum + nums[i], nums[i]);
+            global_sum = max(global_sum, curr_sum);
         }
         
-        return global_sum[len - 1];
+        return global_sum;
     }
 
     vector<int> inputArr() {

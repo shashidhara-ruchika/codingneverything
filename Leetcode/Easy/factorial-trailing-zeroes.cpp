@@ -1,5 +1,6 @@
 /*
 https://leetcode.com/problems/factorial-trailing-zeroes/
+https://practice.geeksforgeeks.org/problems/trailing-zeroes-in-factorial5134/1#
 */
 
 # include <bits/stdc++.h>
