@@ -34,6 +34,7 @@ Yet to complete:
 
 * Strings
    * strstr.cpp (whole problem, 28)
+   * longest-prefix-suffix.cpp (implement kmp)
 
 * Arrays
    * majority-element.cpp (implement Boyer-Moore Voting Algorithm)
