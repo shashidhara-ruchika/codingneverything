@@ -22,6 +22,12 @@ Yet to complete:
     * maximum-difference-between-node-and-ancestor.cpp (implement iterative solution)
     * populating-next-right-pointers-in-each-node.cpp (implement recursive solution)    
 
+* N-ary Trees
+   * n-ary-tree-preorder-traversal.cpp
+   * n-ary-tree-postorder-traversal.cpp
+   * n-ary-tree-level-order-traversal.cpp
+   * maximum-depth-of-n-ary-tree.cpp
+
 * Stacks
    * min-stack.cpp (output is not being printed)
 
