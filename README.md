@@ -17,10 +17,12 @@ Yet to complete:
     * binary-tree-postorder-traversal.cpp
     * binary-tree-inorder-traversal.cpp
     * binary-tree-level-order-traversal.cpp
+    * binary-tree-zigzag-level-order-traversal.cpp
     * find-a-corresponding-node-of-a-binary-tree-in-a-clone-of-that-tree.cpp 
     * validate-binary-search-tree.cpp
     * maximum-difference-between-node-and-ancestor.cpp (implement iterative solution)
     * populating-next-right-pointers-in-each-node.cpp (implement recursive solution)    
+    * kth-smallest-element-in-a-bst.cpp
 
 * N-ary Trees
    * n-ary-tree-preorder-traversal.cpp
