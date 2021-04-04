@@ -5,7 +5,7 @@ Yet to complete in SQL:
 
 * query to find median value - station.sql - https://www.hackerrank.com/challenges/weather-observation-station-20/problem
 
-Yet to complete in Programming:  
+Yet to complete in DSA:  
 
 * Trees:    
     * same-tree.cpp
