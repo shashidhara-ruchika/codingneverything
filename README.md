@@ -1,11 +1,34 @@
 # codingneverything
 Coding N Everything
 
-Yet to complete in SQL:
+Yet to complete in Exceptions & Debugging:
+
+* Python
+
+* CPP
+
+
+
+Yet to complete in OOP:
+* Python
+
+* CPP 
+   * Hackkerank - https://www.hackerrank.com/domains/cpp?filters%5Bsubdomains%5D%5B%5D=classes&filters%5Bsubdomains%5D%5B%5D=inheritance
+   * GFG - https://practice.geeksforgeeks.org/explore/?page=1&category%5B%5D=OOP&category%5B%5D=Class
+
+
+
+Yet to complete in SQL: - https://www.hackerrank.com/domains/sql?filters%5Bskills%5D%5B%5D=SQL%20%28Intermediate%29&filters%5Bskills%5D%5B%5D=SQL%20%28Advanced%29&filters%5Bstatus%5D%5B%5D=unsolved
+
+* soln not yet added - hackers-challenges.sql - https://www.hackerrank.com/challenges/challenges/problem
 
 * query to find median value - station.sql - https://www.hackerrank.com/challenges/weather-observation-station-20/problem
 
-Yet to complete in DSA:  
+* query to find grades of all students marks - which join should be used - student-grades.sql - https://www.hackerrank.com/challenges/the-report/problem
+
+
+
+Yet to complete in DSA: - https://practice.geeksforgeeks.org/explore/?page=1&category%5B%5D=Design-Pattern
 
 * Trees:    
     * same-tree.cpp
