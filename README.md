@@ -18,7 +18,9 @@ Yet to complete in OOP:
 
 
 
-Yet to complete in SQL: - https://www.hackerrank.com/domains/sql?filters%5Bskills%5D%5B%5D=SQL%20%28Intermediate%29&filters%5Bskills%5D%5B%5D=SQL%20%28Advanced%29&filters%5Bstatus%5D%5B%5D=unsolved
+Yet to complete in SQL: - 
+   * https://www.hackerrank.com/domains/sql?filters%5Bskills%5D%5B%5D=SQL%20%28Intermediate%29&filters%5Bskills%5D%5B%5D=SQL%20%28Advanced%29&filters%5Bstatus%5D%5B%5D=unsolved
+   * https://leetcode.com/problemset/all/?listId=585u5obs
 
 * soln not yet added - hackers-challenges.sql - https://www.hackerrank.com/challenges/challenges/problem
 
