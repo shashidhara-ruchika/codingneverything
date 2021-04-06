@@ -10,11 +10,12 @@ Yet to complete in Exceptions & Debugging:
 
 
 Yet to complete in OOP:
-* Python
 
 * CPP 
    * Hackkerank - https://www.hackerrank.com/domains/cpp?filters%5Bsubdomains%5D%5B%5D=classes&filters%5Bsubdomains%5D%5B%5D=inheritance
    * GFG - https://practice.geeksforgeeks.org/explore/?page=1&category%5B%5D=OOP&category%5B%5D=Class
+
+   * overload-operators-complex-number-addition.cpp - current soln works fine, but if operator overloading definitions is prefixed with Complex:: it throws an error - why?
 
 
 
@@ -82,4 +83,3 @@ Yet to complete in DSA: - https://practice.geeksforgeeks.org/explore/?page=1&cat
 
 Organize Codechef Soln, add ans from OCT20B
 
-Start from 206 reverse linked lists
