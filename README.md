@@ -12,8 +12,18 @@ Yet to complete in Exceptions & Debugging:
 Yet to complete in OOP:
 
 * CPP 
-   * Hackkerank - https://www.hackerrank.com/domains/cpp?filters%5Bsubdomains%5D%5B%5D=classes&filters%5Bsubdomains%5D%5B%5D=inheritance
-   * GFG - https://practice.geeksforgeeks.org/explore/?page=1&category%5B%5D=OOP&category%5B%5D=Class
+   * Hackkerank - 
+      * https://www.hackerrank.com/challenges/exceptional-server/problem
+      * https://www.hackerrank.com/challenges/virtual-functions/problem
+      * https://www.hackerrank.com/challenges/abstract-classes-polymorphism/problem
+      * https://www.hackerrank.com/challenges/inheritance-introduction/problem
+      * https://www.hackerrank.com/challenges/rectangle-area/problem
+      * https://www.hackerrank.com/challenges/multi-level-inheritance-cpp/problem
+      * https://www.hackerrank.com/challenges/accessing-inherited-functions/problem
+      * https://www.hackerrank.com/challenges/magic-spells/problem
+
+   * GFG - https://practice.geeksforgeeks.org/explore/?page=1&category%5B%5D=OOP&
+   category%5B%5D=Class
 
    * overload-operators-complex-number-addition.cpp - current soln works fine, but if operator overloading definitions is prefixed with Complex:: it throws an error - why?
 

@@ -22,7 +22,18 @@ class Points(object):
         
     def absolute(self):
         return pow((self.x ** 2 + self.y ** 2 + self.z ** 2), 0.5)
+"""
+Sample Input
 
+0 4 5
+1 7 6
+0 5 9
+1 7 2
+
+Sample Output
+
+8.19
+"""
 if __name__ == '__main__':
     points = list()
     for i in range(4):

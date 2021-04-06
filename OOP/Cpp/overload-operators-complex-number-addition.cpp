@@ -50,20 +50,30 @@ Complex operator + (const Complex& n1, const Complex& n2) {
 
 //<< should print a complex number in the format "a+ib"
 // Throws an error for - ostream& Complex :: operator << (ostream& ostream_cout, const Complex& n)
-ostream& operator << (ostream& ostream_cout, const Complex& n) {
+ostream& operator << (ostream& ostream_op, const Complex& n) {
     
     if (n.b > 0)
-        ostream_cout << n.a << "+i" << n.b;
+        ostream_op << n.a << "+i" << n.b;
         
     else if (n.b < 0)
-        ostream_cout << n.a << "-i" << n.b;
+        ostream_op << n.a << "-i" << n.b;
     
     else 
-        ostream_cout << n.a;
+        ostream_op << n.a;
     
-    return ostream_cout;
+    return ostream_op;
 }
 
+/*
+Sample Input
+
+3+i4
+5+i6
+
+Sample Output
+
+8+i10
+*/
 
 int main()
 {

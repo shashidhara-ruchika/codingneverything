@@ -1,5 +1,5 @@
 /*
-https://www.hackerrank.com/challenges/operator-overloading/problem?isFullScreen=true
+https://www.hackerrank.com/challenges/operator-overloading/problem
 */
 
 #include <cmath>
@@ -34,6 +34,20 @@ Matrix& Matrix:: operator + (const Matrix& y) {
     
     return *sum_res;
 } 
+
+/*
+Sample Input
+
+1
+2 2
+2 2 2 2
+1 2 3 4
+
+Sample Output
+
+3 4 
+5 6
+*/
 
 int main () {
    int cases,k;
