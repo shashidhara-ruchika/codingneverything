@@ -11,26 +11,26 @@ Yet to complete in Exceptions & Debugging:
 
 Yet to complete in OOP:
 
-* Cpp       
+* Cpp      
 
-   * GFG - https://practice.geeksforgeeks.org/explore/?page=1&category%5B%5D=OOP
-
-   * soln not yet added - magic-spells-dynamic-casting.cpp - dynamic casting 
+   * soln not yet added - All_Concepts/magic-spells-dynamic-casting.cpp - dynamic casting 
 
    * overload-operators-complex-number-addition.cpp - current soln works fine, but if operator overloading definitions is prefixed with Complex:: it throws an error - why?
 
 * Yet-to-sort
 
 
-Yet to complete in SQL: - 
+Yet to complete in SQL: 
+
    * https://www.hackerrank.com/domains/sql?filters%5Bskills%5D%5B%5D=SQL%20%28Intermediate%29&filters%5Bskills%5D%5B%5D=SQL%20%28Advanced%29&filters%5Bstatus%5D%5B%5D=unsolved
+
    * https://leetcode.com/problemset/all/?listId=585u5obs
 
-* soln not yet added - hackers-challenges.sql - https://www.hackerrank.com/challenges/challenges/problem
+* soln not yet added - Hackerrank/hackers-challenges.sql - https://www.hackerrank.com/challenges/challenges/problem
 
-* query to find median value - station.sql - https://www.hackerrank.com/challenges/weather-observation-station-20/problem
+* query to find median value - Hackerrank/station.sql - https://www.hackerrank.com/challenges/weather-observation-station-20/problem
 
-* query to find grades of all students marks - which join should be used - student-grades.sql - https://www.hackerrank.com/challenges/the-report/problem
+* query to find grades of all students marks - which join should be used - Hackerrank/student-grades.sql - https://www.hackerrank.com/challenges/the-report/problem
 
 
 
