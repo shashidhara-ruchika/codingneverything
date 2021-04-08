@@ -30,7 +30,6 @@ Yet to complete in SQL:
 
 * query to find median value - Hackerrank/station.sql - https://www.hackerrank.com/challenges/weather-observation-station-20/problem
 
-* query to find grades of all students marks - which join should be used - Hackerrank/student-grades.sql - https://www.hackerrank.com/challenges/the-report/problem
 
 
 
@@ -82,7 +81,4 @@ Yet to complete in DSA: - https://practice.geeksforgeeks.org/explore/?page=1&cat
 
 * Searching
    * first-bad-version.cpp (implement correct costructor class in main)
-
-
-Organize Codechef Soln, add ans from OCT20B
 
