@@ -1,7 +1,7 @@
 # codingneverything
 Coding N Everything
 
-Yet to complete in Exceptions & Debugging:
+Yet to complete in Exceptions-Debugging:
 
 * Python
 
@@ -9,7 +9,7 @@ Yet to complete in Exceptions & Debugging:
 
 
 
-Yet to complete in OOP:
+Yet to complete in Object-Oriented-Programming:
 
 * Cpp      
 
@@ -20,7 +20,7 @@ Yet to complete in OOP:
 * Yet-to-sort
 
 
-Yet to complete in SQL: 
+Yet to complete in Databases-SQL: 
 
    * https://www.hackerrank.com/domains/sql?filters%5Bskills%5D%5B%5D=SQL%20%28Intermediate%29&filters%5Bskills%5D%5B%5D=SQL%20%28Advanced%29&filters%5Bstatus%5D%5B%5D=unsolved
 
@@ -33,7 +33,7 @@ Yet to complete in SQL:
 
 
 
-Yet to complete in DSA: - https://practice.geeksforgeeks.org/explore/?page=1&category%5B%5D=Design-Pattern
+Yet to complete in Data-Structures-Algorithms: - https://practice.geeksforgeeks.org/explore/?page=1&category%5B%5D=Design-Pattern
 
 * Trees:    
     * same-tree.cpp
