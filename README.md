@@ -55,6 +55,8 @@ Yet to complete in Data-Structures-Algorithms: - https://practice.geeksforgeeks.
     * maximum-difference-between-node-and-ancestor.cpp (implement iterative solution)
     * populating-next-right-pointers-in-each-node.cpp (implement recursive solution)    
     * kth-smallest-element-in-a-bst.cpp
+    * tree-sum.cpp
+    * bst-iterator.cpp
 
 * N-ary Trees
    * n-ary-tree-preorder-traversal.cpp
