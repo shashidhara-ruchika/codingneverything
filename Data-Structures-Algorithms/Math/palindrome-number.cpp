@@ -21,22 +21,48 @@ public:
         
         return true;
     }
+
+    int reverse_num(int num) {
+        int rev_num = 0;
+        int d = log10((double)abs(num));
+        //cout << d << endl;
+        while(num > 0) {
+            rev_num += (num % 10) * pow(10, d);
+            num /= 10;
+            d--;
+        }
+        return rev_num;
+    }
+
+    bool isPalindrome2(int num) {
+        int rev_num = reverse_num(num);
+        //cout << rev_num;
+        if (rev_num == num)
+            return true;
+        else
+            return false;
+    }
 };
 
 int main () {
 
     /*
     12321
+    1234
     */
 
     /*
     1
+    0
     */
 
     Solution *soln = new Solution;
+    Solution *soln2 = new Solution;
     int n;
     cin >> n;
     cout << soln -> isPalindrome(n) << endl;
+    cin >> n;
+    cout << soln2 -> isPalindrome2(n) << endl;
     return 0;
 
 }
