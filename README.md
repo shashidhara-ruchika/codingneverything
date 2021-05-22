@@ -58,6 +58,8 @@ Yet to complete in Data-Structures-Algorithms: - https://practice.geeksforgeeks.
     * tree-sum.cpp
     * bst-iterator.cpp
     * only-child.cpp
+    * inorder-succsessor.cpp
+    * largest-binary-search-subtree-in-nodes.cpp
 
 * N-ary Trees
    * n-ary-tree-preorder-traversal.cpp
