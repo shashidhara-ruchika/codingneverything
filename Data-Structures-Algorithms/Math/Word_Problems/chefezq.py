@@ -13,7 +13,7 @@ for _ in range(t):
             checkans = True
             break
         try:
-            l[i+1] += l[i] - k;
+            l[i+1] += l[i] - k
         except:
             continue
     if not checkans:    

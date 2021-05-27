@@ -26,10 +26,6 @@ Yet to complete in Databases-SQL:
 
    * https://leetcode.com/problemset/all/?listId=585u5obs
 
-* soln not yet added - Hackerrank/hackers-challenges.sql - https://www.hackerrank.com/challenges/challenges/problem
-
-* query to find median value - Hackerrank/station.sql - https://www.hackerrank.com/challenges/weather-observation-station-20/problem
-
 
 
 
@@ -60,6 +56,7 @@ Yet to complete in Data-Structures-Algorithms: - https://practice.geeksforgeeks.
     * only-child.cpp
     * inorder-succsessor.cpp
     * largest-binary-search-subtree-in-nodes.cpp
+    * binary-tree-to-linked-list.cpp
 
 * N-ary Trees
    * n-ary-tree-preorder-traversal.cpp
