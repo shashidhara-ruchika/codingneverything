@@ -67,7 +67,7 @@ Yet to complete in Data-Structures-Algorithms: - https://practice.geeksforgeeks.
 * Stacks
    * min-stack.cpp (output is not being printed)
 
-* Linked_Lists
+* Singly_Linked_Lists
    * intersection-of-two-linked-lists.cpp
 
 * Bits
