@@ -22,7 +22,7 @@ Yet to complete in Object-Oriented-Programming:
 
 Yet to complete in Databases-SQL: 
 
-   * https://www.hackerrank.com/domains/sql?filters%5Bskills%5D%5B%5D=SQL%20%28Intermediate%29&filters%5Bskills%5D%5B%5D=SQL%20%28Advanced%29&filters%5Bstatus%5D%5B%5D=unsolved
+   * https://www.hackerrank.com/domains/sql?filters%5Bstatus%5D%5B%5D=unsolved
 
    * https://leetcode.com/problemset/all/?listId=585u5obs
 
@@ -57,6 +57,7 @@ Yet to complete in Data-Structures-Algorithms: - https://practice.geeksforgeeks.
     * inorder-succsessor.cpp
     * largest-binary-search-subtree-in-nodes.cpp
     * binary-tree-to-linked-list.cpp
+    * lowest-common-ancestor.cpp
 
 * N-ary Trees
    * n-ary-tree-preorder-traversal.cpp

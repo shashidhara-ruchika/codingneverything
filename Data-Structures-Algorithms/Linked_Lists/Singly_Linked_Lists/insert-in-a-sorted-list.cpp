@@ -2,8 +2,6 @@
 https://practice.geeksforgeeks.org/problems/insert-in-a-sorted-list/1/
 */
 
-//
-
 #include <bits/stdc++.h> 
 using namespace std; 
 
