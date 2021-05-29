@@ -29,48 +29,15 @@ Yet to complete in Databases-SQL:
 
 
 
-Yet to complete in Data-Structures-Algorithms: - https://practice.geeksforgeeks.org/explore/?page=1&category%5B%5D=Design-Pattern
+Yet to complete in Data-Structures-Algorithms: 
 
-* Trees:    
-    * same-tree.cpp
-    * symmetric-tree.cpp
-    * maximum-depth-of-binary-tree.cpp (yet to implement iterative solution as well)
-    * binary-tree-level-order-traversal-ii.cpp
-    * balanced-binary-tree (implemented with class variable ans, yet to implement with class itself)
-    * minimum-depth-of-binary-tree.cpp (implemented a very slow algo, yet to implement recursive & iterative algos)
-    * path-sum.cpp (implemented a very slow algo, yet to implement recursive & iterative algos)
-    * convert-sorted-array-to-binary-search-tree.cpp (implemented a very slow algo, yet to implement recursive & iterative algos)
-    * binary-tree-tilt.cpp
-    * binary-tree-preorder-traversal.cpp
-    * binary-tree-postorder-traversal.cpp
-    * binary-tree-inorder-traversal.cpp
-    * binary-tree-level-order-traversal.cpp
-    * binary-tree-zigzag-level-order-traversal.cpp
-    * find-a-corresponding-node-of-a-binary-tree-in-a-clone-of-that-tree.cpp 
-    * validate-binary-search-tree.cpp
-    * maximum-difference-between-node-and-ancestor.cpp (implement iterative solution)
-    * populating-next-right-pointers-in-each-node.cpp (implement recursive solution)    
-    * kth-smallest-element-in-a-bst.cpp
-    * tree-sum.cpp
-    * bst-iterator.cpp
-    * only-child.cpp
-    * inorder-succsessor.cpp
-    * largest-binary-search-subtree-in-nodes.cpp
-    * binary-tree-to-linked-list.cpp
-    * lowest-common-ancestor.cpp
-    * enlarge-bst.cpp
-    * merge-binary-trees.cpp
+* https://practice.geeksforgeeks.org/explore/?page=1&category%5B%5D=Design-Pattern
 
-* N-ary Trees
-   * n-ary-tree-preorder-traversal.cpp
-   * n-ary-tree-postorder-traversal.cpp
-   * n-ary-tree-level-order-traversal.cpp
-   * maximum-depth-of-n-ary-tree.cpp
 
 * Stacks
    * min-stack.cpp (output is not being printed)
 
-* Singly_Linked_Lists
+* Singly-Linked-Lists
    * intersection-of-two-linked-lists.cpp
 
 * Bits
@@ -87,3 +54,44 @@ Yet to complete in Data-Structures-Algorithms: - https://practice.geeksforgeeks.
 * Searching
    * first-bad-version.cpp (implement correct costructor class in main)
 
+* N-ary-Trees
+   * n-ary-tree-preorder-traversal.cpp
+   * n-ary-tree-postorder-traversal.cpp
+   * n-ary-tree-level-order-traversal.cpp
+   * maximum-depth-of-n-ary-tree.cpp
+
+* Binary-Search-Trees:
+   * bst-iterator.cpp
+   * convert-sorted-array-to-binary-search-tree.cpp (implemented a very slow algo, yet to implement recursive & iterative algos)
+   * enlarge-bst.cpp
+   * height-of-bst.cpp
+   * inorder-succsessor.cpp
+   * kth-smallest-element-in-a-bst.cpp
+   * level-order-traversal-bst.cpp
+   * validate-binary-search-tree.cpp
+
+* Binary-Trees:    
+    * same-tree.cpp
+    * symmetric-tree.cpp
+    * maximum-depth-of-binary-tree.cpp (yet to implement iterative solution as well)
+    * binary-tree-level-order-traversal-ii.cpp
+    * balanced-binary-tree (implemented with class variable ans, yet to implement with class itself)
+    * minimum-depth-of-binary-tree.cpp (implemented a very slow algo, yet to implement recursive & iterative algos)
+    * path-sum.cpp (implemented a very slow algo, yet to implement recursive & iterative algos)    
+    * minimum-height-trees.cpp
+    * binary-tree-tilt.cpp
+    * binary-tree-preorder-traversal.cpp
+    * binary-tree-postorder-traversal.cpp
+    * binary-tree-inorder-traversal.cpp
+    * binary-tree-inorder-traversal-ii.cpp
+    * binary-tree-level-order-traversal.cpp
+    * binary-tree-zigzag-level-order-traversal.cpp
+    * find-a-corresponding-node-of-a-binary-tree-in-a-clone-of-that-tree.cpp     
+    * maximum-difference-between-node-and-ancestor.cpp (implement iterative solution)
+    * populating-next-right-pointers-in-each-node.cpp (implement recursive solution)        
+    * tree-sum.cpp    
+    * only-child.cpp    
+    * largest-binary-search-subtree-in-nodes.cpp
+    * binary-tree-to-linked-list.cpp
+    * lowest-common-ancestor.cpp    
+    * merge-binary-trees.cpp
