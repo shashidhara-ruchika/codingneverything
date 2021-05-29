@@ -58,6 +58,8 @@ Yet to complete in Data-Structures-Algorithms: - https://practice.geeksforgeeks.
     * largest-binary-search-subtree-in-nodes.cpp
     * binary-tree-to-linked-list.cpp
     * lowest-common-ancestor.cpp
+    * enlarge-bst.cpp
+    * merge-binary-trees.cpp
 
 * N-ary Trees
    * n-ary-tree-preorder-traversal.cpp
