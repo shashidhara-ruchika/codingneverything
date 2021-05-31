@@ -56,15 +56,64 @@ public:
     }
 };
 
+class Solution2 {
+private:
+    string digits;
+    unordered_map<char, string> mappings;
+
+public:
+    Solution2(string digits) {
+        this -> digits = digits;
+        this -> mappings['2'] = "abc";
+        this -> mappings['3'] = "def";
+        this -> mappings['4'] = "ghi";
+        this -> mappings['5'] = "jkl";
+        this -> mappings['6'] = "mno";
+        this -> mappings['7'] = "pqrs";
+        this -> mappings['8'] = "tuv";
+        this -> mappings['9'] = "wxyz";
+    }
+
+    vector<string> make_combinations(int digit_index) {
+
+        if(digit_index == this -> digits.length()) 
+            return {""};
+                
+        vector<string> res_next, res;
+        res_next = make_combinations(digit_index + 1);
+        
+        for (int j = 0; j < this -> mappings[digits[digit_index]].size(); j++) {
+            for(int i = 0; i < res_next.size(); i++) {
+                res.push_back(mappings[this -> digits[digit_index]][j] + res_next[i]);
+            }
+        }     
+    
+        return res;
+    }
+
+    vector<string> getAllComb() {     
+        vector<string> res = make_combinations(0);
+        return res;   
+    }
+
+    void printComb(vector<string> &comb) {
+        for(auto &s : comb)
+            cout << s << " ";
+        cout << endl;
+    }
+};
+
 
 int main() {
 
     /*
-    "23"
+    4
+    23
     */
 
     /*
-    ["ad","ae","af","bd","be","bf","cd","ce","cf"]
+    g h i
+    ad ae af bd be bf cd ce cf
     */
 
     Solution *soln = new Solution();
@@ -72,6 +121,12 @@ int main() {
     cin >> digits;
     vector<string> letter_comb = soln -> letterCombinations(digits);
     soln -> printComb(letter_comb);
+
+    string digits2;
+    cin >> digits2;
+    Solution2 *soln2 = new Solution2(digits);    
+    vector<string> letter_comb2 = soln2 -> getAllComb();
+    soln2 -> printComb(letter_comb2);
 
     return 0;
 }
