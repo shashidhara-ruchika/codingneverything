@@ -1,6 +1,8 @@
 # codingneverything
 Coding N Everything
 
+
+
 Yet to complete in Exceptions-Debugging:
 
 * Python
@@ -20,12 +22,20 @@ Yet to complete in Object-Oriented-Programming:
 * Yet-to-sort
 
 
+
 Yet to complete in Databases-SQL: 
-
-   * https://www.hackerrank.com/domains/sql?filters%5Bstatus%5D%5B%5D=unsolved
-
    * https://leetcode.com/problemset/all/?listId=585u5obs
 
+   * https://www.hackerrank.com/domains/sql?filters%5Bstatus%5D%5B%5D=unsolved
+   
+   * Queries-DB
+      * occupations.sql => occupations
+      * projects.sql => sql project planning
+      * hackers-difiiculty-challenges-submissions.sql => 15 days of learning sql
+   
+   * Queries-Problems
+      * draw-triangles.sql => 1, 2
+      * print-prime-numbers.sql
 
 
 
