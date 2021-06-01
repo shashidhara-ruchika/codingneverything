@@ -105,3 +105,5 @@ Yet to complete in Data-Structures-Algorithms:
     * binary-tree-to-linked-list.cpp
     * lowest-common-ancestor.cpp    
     * merge-binary-trees.cpp
+    * most-frequent-subtree-sum.cpp
+    * delete-even-leaves.cpp
