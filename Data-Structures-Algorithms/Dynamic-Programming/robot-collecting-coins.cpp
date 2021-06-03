@@ -11,9 +11,8 @@ int collect_coins(vector<vector<int>>& matrix) {
         return 0;
 
     vector<vector<int>> dp;
-    for(int r = 0; r < matrix.size(); r++) {
-        dp.push_back(matrix[r]);
-    }
+    for(auto row : matrix) 
+        dp.push_back(row);
 
     for(int c = 1; c < matrix[0].size(); c++)
         dp[0][c] += dp[0][c - 1];
@@ -22,10 +21,8 @@ int collect_coins(vector<vector<int>>& matrix) {
         dp[r][0] += dp[r - 1][0];
 
     for(int r = 1; r < matrix.size(); r++) {
-        for(int c = 1; c < matrix[0].size(); c++) {
+        for(int c = 1; c < matrix[0].size(); c++) 
             dp[r][c] += max(dp[r - 1][c], dp[r][c - 1]);
-        }
-        
     }
 
     return dp[dp.size() - 1][dp[0].size() - 1];
