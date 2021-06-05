@@ -79,6 +79,7 @@ Yet to complete in Data-Structures-Algorithms:
    * kth-smallest-element-in-a-bst.cpp
    * level-order-traversal-bst.cpp
    * validate-binary-search-tree.cpp
+   * bst-typo.cpp
 
 * Binary-Trees:    
     * same-tree.cpp
@@ -107,3 +108,4 @@ Yet to complete in Data-Structures-Algorithms:
     * merge-binary-trees.cpp
     * most-frequent-subtree-sum.cpp
     * delete-even-leaves.cpp
+    * sum-tree.cpp
