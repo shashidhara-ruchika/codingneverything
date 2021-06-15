@@ -15,30 +15,29 @@ class Solution {
 public:
     int lengthOfLIS(vector<int>& nums) {
         
-        if (nums.size() == 0)
+        if(nums.size() == 0)
             return 0;
         
-        vector<int> dp_lis_len(nums.size(), 0);
-        dp_lis_len[0] = 1;        
+        vector<int> dp(nums.size(), 1);
         
-        int max_lis = 1;
+        int max_len = 1;
         
-        for(int dpi = 1; dpi < dp_lis_len.size(); dpi++) {
+        for(int i = 1; i < nums.size(); i++) {
             
-            int max_val = 0;
+            int i_max_len = 0;
             
-            for (int ni = 0; ni < dpi; ni++) {
+            for (int j = 0; j < i; j++) {
                 
-                if (nums[ni] < nums[dpi])
-                    max_val = max(max_val, dp_lis_len[ni]);
+                if(nums[i] > nums[j])
+                    i_max_len = max(dp[j], i_max_len);
             }
             
-            dp_lis_len[dpi] = max_val + 1;
-            max_lis = max(max_lis, dp_lis_len[dpi]);
+            dp[i] = i_max_len + 1;
             
+            max_len = max(dp[i], max_len);
         }
         
-        return max_lis;
+        return max_len;
     }
 
     vector<int> inputVec(int n) {

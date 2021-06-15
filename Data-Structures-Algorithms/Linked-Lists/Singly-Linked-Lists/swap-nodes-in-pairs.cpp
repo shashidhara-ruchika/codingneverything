@@ -15,7 +15,24 @@ struct ListNode {
 };
 
 class Solution {
+private:
+    ListNode* rec_swap(ListNode* node) { 
+            
+            if(!node || !(node -> next))
+                return node;
+            
+            ListNode* temp = node -> next;
+            node -> next = rec_swap(temp -> next);        
+            temp -> next = node;
+            
+            return temp;
+        }
+    
 public:
+    ListNode* swapPairs_rec(ListNode* head) {
+        return rec_swap(head);
+    }
+
     ListNode* swapPairs(ListNode* head) {       
         
         if ( ! head || ! (head -> next) )

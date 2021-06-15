@@ -63,6 +63,7 @@ Yet to complete in Data-Structures-Algorithms:
 
 * Searching
    * first-bad-version.cpp (implement correct costructor class in main)
+   * search-in-a-binary-search-tree.cpp
 
 * N-ary-Trees
    * n-ary-tree-preorder-traversal.cpp
