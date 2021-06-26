@@ -15,12 +15,13 @@ class MRSortedWordFrequency(MRJob):
     def steps(self):
         return [
                 MRStep(
-                        mapper  = self.mapper_get_words,
-                        reducer = self.reducer_get_word_freq
+                        mapper   = self.mapper_get_words,
+                        combiner = self.reducer_get_word_freq,
+                        reducer  = self.reducer_get_word_freq
                         ),
                 MRStep(
-                        mapper  = self.mapper_make_freq_as_key,
-                        reducer = self.reducer_get_sorted_word_freq
+                        mapper   = self.mapper_make_freq_as_key,
+                        reducer  = self.reducer_get_sorted_word_freq
                         )
                 ]
 

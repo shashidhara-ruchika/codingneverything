@@ -18,7 +18,7 @@ class MRAvgAgeByFriendCount(MRJob):
         for friend_count in no_of_friends:
             sum_friends += friend_count
             count_friends += 1
-        yield age, sum_friends/count_friends
+        yield age, '%.03f'%float(sum_friends/count_friends)  # format upto 3 decimal places
 
 
 if __name__ == '__main__':
