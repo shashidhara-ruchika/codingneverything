@@ -1,5 +1,5 @@
 """
-python RatingCounter_withCombiner.py ml-100k-u.data
+python RatingCounter_withCombiner.py u.data
 """
 
 from mrjob.job import MRJob
