@@ -81,6 +81,7 @@ Yet to complete in Data-Structures-Algorithms:
    * level-order-traversal-bst.cpp
    * validate-binary-search-tree.cpp
    * bst-typo.cpp
+   * list-to-binary-search-tree.cpp
 
 * Binary-Trees:    
     * same-tree.cpp
@@ -114,3 +115,5 @@ Yet to complete in Data-Structures-Algorithms:
     * invert-tree.cpp
     * sibling-tree-value.cpp
     * leaves-in-the-same-level.cpp
+    * level-order-binary-tree-to-linked-list.cpp
+    * level-order-alternating.cpp

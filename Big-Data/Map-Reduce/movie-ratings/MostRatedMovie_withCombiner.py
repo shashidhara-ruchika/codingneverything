@@ -35,7 +35,7 @@ class MRMostRatedMovie_withCombiner(MRJob):
 
     # MR Job 2
 
-    def reducer_get_max_rated_movie(self, rating:str, movie_rating_counts:tuple) -> (str, int):
+    def reducer_get_max_rated_movie(self, key:None, movie_rating_counts:tuple) -> (str, int):
         yield max(movie_rating_counts)
 
 
