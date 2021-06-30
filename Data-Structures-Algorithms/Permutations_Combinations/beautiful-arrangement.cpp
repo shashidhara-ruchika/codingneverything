@@ -1,5 +1,5 @@
 /*
-https://leetcode.com/problems/beautiful-arragement/
+https://leetcode.com/problems/beautiful-arrangement/
 */
 
 # include <bits/stdc++.h>
