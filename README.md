@@ -117,3 +117,4 @@ Yet to complete in Data-Structures-Algorithms:
     * leaves-in-the-same-level.cpp
     * level-order-binary-tree-to-linked-list.cpp
     * level-order-alternating.cpp
+    * search-in-a-virtually-complete-binary-tree.cpp
