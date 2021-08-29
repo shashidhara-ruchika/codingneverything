@@ -1,6 +1,12 @@
 # codingneverything
 Coding N Everything
 
+To do
+
+https://practice.geeksforgeeks.org/problems/jumping-numbers3805/1
+https://practice.geeksforgeeks.org/problems/largest-prime-factor2601/1#
+https://practice.geeksforgeeks.org/problems/find-nth-root-of-m5843/1
+https://practice.geeksforgeeks.org/problems/pairs-of-prime-number2612/1
 
 
 Yet to complete in Exceptions-Debugging:
