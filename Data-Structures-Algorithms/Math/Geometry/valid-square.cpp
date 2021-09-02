@@ -51,6 +51,55 @@ public:
     }
 };
 
+
+// Another solution
+class Solution2 {
+  private:
+  double euclid_dist(int x1, int y1, int x2, int y2) {
+      return sqrt((x1 - x2)*(x1 - x2) + (y1 - y2)*(y1 - y2));
+  }
+  
+  void countdist(map<double, int> &dist, double d) {
+      if (dist.find(d) == dist.end()) 
+        dist[d] = 1;
+      else
+        dist[d]++;
+  }
+  
+  public:
+    string isSquare(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4) {
+        // code here
+        map<double, int> dist;
+        
+        countdist(dist, euclid_dist(x1, y1, x2, y2));
+        countdist(dist, euclid_dist(x1, y1, x3, y3));
+        countdist(dist, euclid_dist(x1, y1, x4, y4));
+        countdist(dist, euclid_dist(x2, y2, x3, y3));
+        countdist(dist, euclid_dist(x2, y2, x4, y4));
+        countdist(dist, euclid_dist(x3, y3, x4, y4));
+        
+        if (dist.size() == 2) {
+            bool d4 = false, d2 = false;
+            
+            for (auto kvp : dist) {
+                if (kvp.second == 4)
+                    d4 = true;
+                if (kvp.second == 2)
+                    d2 = true;
+            }
+                
+            if (d4 && d2)
+                return "Yes";
+            return "No";
+            
+        } 
+        else {
+            return "No";
+        }
+        
+    }
+};
+
 int main() {
 
     /*

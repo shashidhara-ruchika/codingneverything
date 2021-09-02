@@ -3,10 +3,18 @@ Coding N Everything
 
 To do
 
+Math
 https://practice.geeksforgeeks.org/problems/jumping-numbers3805/1
 https://practice.geeksforgeeks.org/problems/largest-prime-factor2601/1#
 https://practice.geeksforgeeks.org/problems/find-nth-root-of-m5843/1
 https://practice.geeksforgeeks.org/problems/pairs-of-prime-number2612/1
+
+Puzzles
+https://practice.geeksforgeeks.org/problems/3-divisors3942/1
+https://practice.geeksforgeeks.org/problems/overlapping-rectangles1924/1
+https://practice.geeksforgeeks.org/problems/number-of-open-doors1552/1
+https://practice.geeksforgeeks.org/problems/day-of-the-week1637/1
+
 
 
 Yet to complete in Exceptions-Debugging:
