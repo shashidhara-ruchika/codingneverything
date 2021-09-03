@@ -1,5 +1,6 @@
 /*
 https://leetcode.com/problems/longest-increasing-subsequence/
+https://practice.geeksforgeeks.org/problems/longest-increasing-subsequence-1587115620/1
 */
 
 # include <bits/stdc++.h>
@@ -48,6 +49,34 @@ public:
             v.push_back(num);
         }
         return v;
+    }
+};
+
+
+class Solution2
+{
+    public:
+    //Function to find length of longest increasing subsequence.
+    // https://youtu.be/Ns4LCeeOFS4
+    int longestSubsequence(int n, int a[])
+    {
+       // your code here
+       
+       vector<int> lis(n, 1);
+       
+       for (int i = 1; i < n; i++) {
+           for (int j = 0; j < i; j++) {
+               if (a[i] > a[j])
+                    lis[i] = max(lis[j] + 1, lis[i]);
+           }
+       }
+       
+       int maxlis = lis[0];
+       
+       for (int i = 1; i < n; i++)
+            maxlis = max(lis[i], maxlis);
+       
+       return maxlis;
     }
 };
 
