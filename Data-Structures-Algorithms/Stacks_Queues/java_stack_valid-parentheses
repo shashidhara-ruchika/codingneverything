@@ -1,0 +1,78 @@
+/*
+https://www.hackerrank.com/challenges/java-stack/problem?isFullScreen=true
+*/
+
+import java.util.*;
+class Solution{
+    
+    public static boolean isValidParentheses(String parentheses) {
+        
+        char[] parenthesesCharacterArray = parentheses.toCharArray();
+        
+        Stack<Character> stk = new Stack<>();
+        
+        for(Character bracket : parenthesesCharacterArray) {
+            
+            if (bracket == '(' || bracket == '{' || bracket == '[') {
+                stk.push(bracket);
+            }
+            else if (bracket == ')') {
+                if (!stk.isEmpty() && stk.peek() == '(') 
+                    stk.pop();
+                else 
+                    return false;
+            }
+            else if (bracket == ']') {
+                if (!stk.isEmpty() && stk.peek() == '[')
+                    stk.pop();
+                else 
+                    return false;
+            }
+            else if (bracket == '}') {
+                if (!stk.isEmpty() && stk.peek() == '{')
+                    stk.pop();
+                else 
+                    return false;
+            }
+            else {
+                return false;
+            }
+        }
+        
+        return stk.isEmpty();
+           
+    }
+	
+	public static void main(String []argh)
+	{
+		Scanner scan = new Scanner(System.in);
+        
+		while (scan.hasNextLine()) {
+			String parentheses = scan.nextLine();
+            //Complete the code
+            
+            System.out.println(isValidParentheses(parentheses));
+            
+		}
+        
+        scan.close();
+		
+	}
+}
+
+/*
+Sample Input
+
+{}()
+({()})
+{}(
+[]
+
+
+Sample Output
+
+true
+true
+false
+true
+*/
