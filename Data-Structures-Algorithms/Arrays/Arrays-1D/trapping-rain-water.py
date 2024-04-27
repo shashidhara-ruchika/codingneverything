@@ -1,0 +1,23 @@
+# https://leetcode.com/problems/trapping-rain-water/submissions/1219366497/
+
+class Solution:
+    def trap(self, height: List[int]) -> int:
+        l = 0
+        r = len(height) - 1
+        leftmax = height[l]
+        rightmax = height[r]
+        res = 0
+
+        while l < r:
+            if leftmax < rightmax:
+                l += 1
+                leftmax = max(leftmax, height[l])
+                res += leftmax - height[l]
+            else:
+                r -= 1
+                rightmax = max(rightmax, height[r])
+                res += rightmax - height[r]
+        
+        return res
+
+        
