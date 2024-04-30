@@ -56,6 +56,18 @@ from products
 where is_low_fat_flg > 0 and is_recyclable_flg > 0;
 
 
+select sum(is_low_fat_and_recyclable) / count(*)
+from
+(
+select product_id, 
+case
+  when is_low_fat_flg > 0 and is_recyclable_flg > 0 then 1.0
+  else 0.0
+end as is_low_fat_and_recyclable
+from products
+) as pct_low_fat_and_recyclable;
+
+
  /*
  PROMPT:
  -- What are the top five (ranked in decreasing order)
@@ -79,9 +91,45 @@ where is_low_fat_flg > 0 and is_recyclable_flg > 0;
 -------------- PLEASE WRITE YOUR SQL SOLUTION BELOW THIS LINE ----------------
  */
 
+ select media_type as single_channel_media_type, sum(cost) as total_cost
+ from promotions
+ where media_type not like '%,%'
+ group by media_type
+ order by total_cost desc 
+ limit 5
 
 
+/*
+ PROMPT:
+ -- Of sales that had a valid promotion, the VP of marketing
+ -- wants to know what % of transactions occur on either
+ -- the very first day or the very last day of a promotion campaign.
+ 
+ 
+ EXPECTED OUTPUT:
+ Note: Please use the column name(s) specified in the expected output in your solution.
+ +-------------------------------------------------------------+
+ | pct_of_transactions_on_first_or_last_day_of_valid_promotion |
+ +-------------------------------------------------------------+
+ |                                         41.9047619047619048 |
+ +-------------------------------------------------------------+
+  
+ -------------- PLEASE WRITE YOUR SQL SOLUTION BELOW THIS LINE ----------------
+ */
 
+
+select sum(valid_promotion) / count(*) as pct_of_transactions_on_first_or_last_day_of_valid_promotion
+from
+(
+select p.promotion_id,
+case 
+  when s.transaction_date = p.start_date OR s.transaction_date = p.end_date THEN 1.0
+  else 0.0
+end as valid_promotion
+from promotions p
+join sales s
+on p.promotion_id = s.promotion_id
+)
 
 
 
