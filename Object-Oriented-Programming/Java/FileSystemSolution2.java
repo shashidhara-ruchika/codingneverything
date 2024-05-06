@@ -1,7 +1,7 @@
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class FileSystemSolution {
+public class FileSystemSolution2 {
     String[] solution(String[][] queries) {
 
         List<String> result = new ArrayList<>();
@@ -16,11 +16,11 @@ public class FileSystemSolution {
                 }
 
                 case "GET_FILE_SIZE": {
-                    File file = fs.files.get(query[1]);
-                    if (file == null) {
+                    Long fileSize = fs.files.get(query[1]);
+                    if (fileSize == null) {
                         result.add("");
                     } else {
-                        result.add(file.size.toString());
+                        result.add(fileSize.toString());
                     }
                     break;
                 }
@@ -54,7 +54,7 @@ public class FileSystemSolution {
                 }
 
                 case "FIND_FILE": {
-                    List<String> files = fs.sortFiles(null, query[1], query[2], "", null);
+                    List<String> files = fs.getNLargestFiles(query[1], query[2], fs.files.size(), "");
                     if (files.isEmpty()) {
                         result.add("");
                     } else {
@@ -66,7 +66,7 @@ public class FileSystemSolution {
                 }
 
                 case "GET_N_LARGEST": {
-                    List<String> files = fs.sortFiles(null, "", query[1], "", Long.parseLong(query[2]));
+                    List<String> files = fs.getNLargestFiles("", query[1], Integer.parseInt(query[2]), "");
                     if (files.isEmpty()) {
                         result.add("");
                     } else {
@@ -103,198 +103,141 @@ public class FileSystemSolution {
     }
 
     public class FileSystem {
-        Map<String, File> files;
-        Map<String, User> users;
-        User admin;
+        Map<String, Long> files; // files, capacity
+        Map<String, Long> users; // user, remaining capacity
+        Map<String, String> fileOwners; // file, user
 
         FileSystem() {
             files = new HashMap<>();
             users = new HashMap<>();
-            admin = new User("admin", Long.MAX_VALUE);
-            users.put(admin.name, admin);
+            fileOwners = new HashMap<>();
+            users.put("admin", Long.MAX_VALUE);
         }
 
         public Boolean addUser(String user, Long capacity) {
             if (users.containsKey(user)) {
                 return false;
             }
-            users.put(user, new User(user, capacity));
+            users.put(user, capacity);
             return true;
-        }
-
-        public User getUser(String user) {
-            return users.get(user);
-        }
-
-        public File getFile(String file) {
-            return files.get(file);
-        }
-
-        public Boolean isAdmin(User user) {
-            return user.equals(admin);
         }
 
         public Boolean addFile(String file, Long capacity, String user) {
-
-            File exisitingFile = files.get(file);
-            if (exisitingFile != null) {
+            if (files.containsKey(file) || !users.containsKey(user) || users.get(user) < capacity) {
                 return false;
             }
-
-            User owner = getUser(user);
-
-            if (owner == null || owner.capacity < capacity) {
-                return false;
+            files.put(file, capacity);
+            if (!user.equals("admin")) {
+                users.put(user, users.get(user) - capacity);
             }
-
-            if (!isAdmin(owner)) {
-                owner.capacity -= capacity;
-            }
-
-            File newFile = new File(user, capacity, owner);
-            files.put(file, newFile);
+            fileOwners.put(file, user);
             return true;
-
         }
 
         public Boolean deleteFile(String file) {
-
-            File fileToDelete = files.get(file);
-            if (fileToDelete == null) {
+            if (!files.containsKey(file)) {
                 return false;
             }
-
-            User owner = fileToDelete.owner;
-
-            if (!isAdmin(owner)) {
-                owner.capacity += fileToDelete.size;
-            }
-
+            String user = fileOwners.get(file);
+            Long fileCapacity = files.get(file);
             files.remove(file);
+            if (!user.equals("admin")) {
+                users.put(user, users.get(user) + fileCapacity);
+            }
+            fileOwners.remove(file);
             return true;
         }
 
         public Boolean copyFile(String source, String destination) {
-
-            File sourceFile = files.get(source);
-            File destinationFile = files.get(destination);
-
-            if (sourceFile == null || destinationFile != null) {
+            if (!files.containsKey(source) || files.containsKey(destination)) {
                 return false;
             }
-
-            return addFile(destination, sourceFile.size, sourceFile.owner.name);
+            return addFile(destination, files.get(source), fileOwners.get(source));
         }
 
-        public List<String> sortFiles(List<String> inputFiles, String prefix, String suffix, String user, Long n) {
-            if (n == null) {
-                n = Long.valueOf(files.size());
+        public List<String> getNLargestFiles(String prefix, String suffix, int n, String user) {
+            List<String> result = new ArrayList<>();
+
+            List<String> queryfiles = new ArrayList<>();
+
+            for (String file : files.keySet()) {
+                if (file.startsWith(prefix) && file.endsWith(suffix)) {
+                    if (user.equals("")) {
+                        queryfiles.add(file);
+                    } else if (users.get(user) != null && fileOwners.get(file).equals(user)) {
+                        queryfiles.add(file);
+                    }
+                }
             }
-            if (inputFiles == null) {
-                inputFiles = files.keySet().stream().collect(Collectors.toList());
-                n = Long.valueOf(files.size());
-            }
-            return inputFiles
-                    .stream()
-                    .filter(file -> user == null ? true : (user.equals(files.get(file).owner.name)))
-                    .filter(file -> (file.startsWith(prefix) && file.endsWith(suffix)))
-                    .sorted(((file1, file2) -> 
-                        {
-                            File f1 = files.get(file1);
-                            File f2 = files.get(file2);
-                            if (f1.size.equals(f2.size)) {
-                                return file1.compareTo(file2);
-                            } else {
-                                return f2.size.compareTo(f1.size);
-                            }
+
+            if (!queryfiles.isEmpty()) {
+                Collections.sort(queryfiles, new Comparator<String>() {
+                    public int compare(String s1, String s2) {
+                        Long v1 = files.get(s1);
+                        Long v2 = files.get(s2);
+
+                        if (v1.equals(v2)) {
+                            return s1.compareTo(s2);
                         }
-                    ))
-                    .limit(n)
-                    .collect(Collectors.toList());
+
+                        return v2.compareTo(v1);
+                    }
+                });
+
+                for (int i = 0; i < n && i < queryfiles.size(); i++) {
+                    result.add(queryfiles.get(i));
+                }
+            }
+
+            return result;
         }
 
         public Boolean mergeUser(String user1, String user2) {
-            User u1 = users.get(user1);
-            User u2 = users.get(user2);
-
-            if (u1 == null || u2 == null) {
+            if (!users.containsKey(user1) || !users.containsKey(user2)) {
                 return false;
             }
 
-            if (u1.equals(u2)) {
-                return false;
+            if (user1.equals("admin") || user2.equals("admin")) {
+                users.put(user1, Long.MAX_VALUE);
+            } else {
+                users.put(user1, users.get(user1) + users.get(user2));
             }
+            users.remove(user2);
 
-            if (isAdmin(u2)) {
-                User temp = u1;
-                u1 = u2;
-                u2 = temp;
-            }
-
-            if(!isAdmin(u1)) {
-                u1.capacity += u2.capacity;
-                
-            } 
-                
-            users.remove(u2.name);
-
-            User uadd = u1;
-            User urm = u2;
-
-            files.keySet().stream().forEach(file -> {
-                File f = files.get(file);
-                if (f.owner.equals(urm)) {
-                    f.owner = uadd;
+            for (String file : files.keySet()) {
+                if (fileOwners.get(file).equals(user2)) {
+                    fileOwners.put(file, user1);
                 }
-            });
+            }
+
             return true;
-        
         }
 
         public List<String> updateUserCapacity(String user, Long capacity) {
-            
+            if (!users.containsKey(user)) {
+                return null;
+            }
+
             List<String> removedFiles = new ArrayList<>();
-            
-            User fileUser = getUser(user);
 
-            if (isAdmin(fileUser)) {
+            if (user.equals("admin")) {
                 return removedFiles;
-            } else if (capacity > fileUser.capacity) {
-                fileUser.capacity = capacity;
+            } else if (capacity > users.get(user)) {
+                users.put(user, capacity);
             } else {
-                List<String> sortedFiles = sortFiles(null, "", "", user, null);
+                List<String> sortedFiles = getNLargestFiles("", "", files.size(), user);
 
-                while (fileUser.capacity >= capacity && !sortedFiles.isEmpty()) {
+                while (users.get(user) >= capacity && !sortedFiles.isEmpty()) {
                     String file = sortedFiles.get(0);
                     deleteFile(file);
                     removedFiles.add(file);
                     sortedFiles.remove(0);
                 }
-            
+
+                return removedFiles;
             }
+
             return removedFiles;
-        }
-    }
-
-    public class User {
-        String name;
-        Long capacity;
-
-        User(String name, Long capacity) {
-            this.name = name;
-            this.capacity = capacity;
-        }
-    }
-
-    public class File {
-        String name;
-        Long size;
-        User owner;
-
-        File(String name, Long size, User owner) {
-            this.name = name;
-            this.size = size;
-            this.owner = owner;
         }
     }
 
