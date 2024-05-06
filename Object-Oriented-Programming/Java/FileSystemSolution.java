@@ -46,7 +46,7 @@ public class FileSystemSolution {
                 case "ADD_FILE_BY": {
                     Boolean addFileResult = fs.addFile(query[1], Long.parseLong(query[2]), query[3]);
                     if (addFileResult) {
-                        result.add(fs.users.get(query[3]).toString());
+                        result.add(fs.users.get(query[3]).remainingCapacity.toString());
                     } else {
                         result.add("");
                     }
@@ -54,24 +54,28 @@ public class FileSystemSolution {
                 }
 
                 case "FIND_FILE": {
-                    List<String> files = fs.sortFiles(null, query[1], query[2], "", null);
+                    List<String> files = fs.sortFiles(null, query[1], query[2], null, null);
                     if (files.isEmpty()) {
                         result.add("");
                     } else {
-                        files = files.stream().map(file -> file + "(" + fs.files.get(file) + ")")
-                                .collect(Collectors.toList());
+                        files = files.stream().map(file -> {
+                            File f = fs.files.get(file);
+                            return f.name + "(" + f.size + ")";
+                        }).collect(Collectors.toList());
                         result.add(String.join(", ", files));
                     }
                     break;
                 }
 
                 case "GET_N_LARGEST": {
-                    List<String> files = fs.sortFiles(null, "", query[1], "", Long.parseLong(query[2]));
+                    List<String> files = fs.sortFiles(null, "", query[1], null, Long.parseLong(query[2]));
                     if (files.isEmpty()) {
                         result.add("");
                     } else {
-                        files = files.stream().map(file -> file + "(" + fs.files.get(file) + ")")
-                                .collect(Collectors.toList());
+                        files = files.stream().map(file -> {
+                            File f = fs.files.get(file);
+                            return f.name + "(" + f.size + ")";
+                        }).collect(Collectors.toList());
                         result.add(String.join(", ", files));
                     }
                     break;
@@ -80,7 +84,7 @@ public class FileSystemSolution {
                 case "MERGE_USER": {
                     Boolean mergeUserResult = fs.mergeUser(query[1], query[2]);
                     if (mergeUserResult) {
-                        result.add(fs.users.get(query[1]).toString());
+                        result.add(fs.users.get(query[1]).remainingCapacity.toString());
                     } else {
                         result.add("");
                     }
@@ -143,15 +147,15 @@ public class FileSystemSolution {
 
             User owner = getUser(user);
 
-            if (owner == null || owner.capacity < capacity) {
+            if (owner == null || owner.remainingCapacity < capacity) {
                 return false;
             }
 
             if (!isAdmin(owner)) {
-                owner.capacity -= capacity;
+                owner.remainingCapacity -= capacity;
             }
 
-            File newFile = new File(user, capacity, owner);
+            File newFile = new File(file, capacity, owner);
             files.put(file, newFile);
             return true;
 
@@ -167,7 +171,7 @@ public class FileSystemSolution {
             User owner = fileToDelete.owner;
 
             if (!isAdmin(owner)) {
-                owner.capacity += fileToDelete.size;
+                owner.remainingCapacity += fileToDelete.size;
             }
 
             files.remove(file);
@@ -192,7 +196,6 @@ public class FileSystemSolution {
             }
             if (inputFiles == null) {
                 inputFiles = files.keySet().stream().collect(Collectors.toList());
-                n = Long.valueOf(files.size());
             }
             return inputFiles
                     .stream()
@@ -232,8 +235,8 @@ public class FileSystemSolution {
             }
 
             if(!isAdmin(u1)) {
-                u1.capacity += u2.capacity;
-                
+                u1.maxCapacity += u2.maxCapacity;
+                u1.remainingCapacity += u2.remainingCapacity;
             } 
                 
             users.remove(u2.name);
@@ -257,20 +260,32 @@ public class FileSystemSolution {
             
             User fileUser = getUser(user);
 
+            if (fileUser == null) {
+                return null;
+            }
+
             if (isAdmin(fileUser)) {
                 return removedFiles;
-            } else if (capacity > fileUser.capacity) {
-                fileUser.capacity = capacity;
+            } else if (capacity > fileUser.maxCapacity) {
+                Long currentUsedCapacity = fileUser.maxCapacity - fileUser.remainingCapacity;
+                fileUser.maxCapacity = capacity;
+                fileUser.remainingCapacity = capacity - currentUsedCapacity;
             } else {
                 List<String> sortedFiles = sortFiles(null, "", "", user, null);
 
-                while (fileUser.capacity >= capacity && !sortedFiles.isEmpty()) {
+                Long currentUsedCapacity = fileUser.maxCapacity - fileUser.remainingCapacity;
+
+                while (currentUsedCapacity > capacity && !sortedFiles.isEmpty()) {
                     String file = sortedFiles.get(0);
+                    Long fileSize = files.get(file).size;
                     deleteFile(file);
                     removedFiles.add(file);
                     sortedFiles.remove(0);
+                    currentUsedCapacity -= fileSize;
                 }
-            
+
+                fileUser.maxCapacity = capacity;
+                fileUser.remainingCapacity = capacity - currentUsedCapacity;
             }
             return removedFiles;
         }
@@ -278,11 +293,18 @@ public class FileSystemSolution {
 
     public class User {
         String name;
-        Long capacity;
+        Long maxCapacity;
+        Long remainingCapacity;
 
         User(String name, Long capacity) {
             this.name = name;
-            this.capacity = capacity;
+            this.maxCapacity = capacity;
+            this.remainingCapacity = capacity;
+        }
+
+        @Override
+        public String toString() {
+            return "User: " + name + " " + maxCapacity + " " + remainingCapacity;
         }
     }
 
@@ -296,6 +318,47 @@ public class FileSystemSolution {
             this.size = size;
             this.owner = owner;
         }
+
+        @Override
+        public String toString() {
+            return "File: " + name + " " + size + " " + owner.name;
+        }
+    }
+
+    public static void main(String[] args) {
+        
+        String[][] queries = new String[][]{
+                {"ADD_USER", "user1", "100"},
+                {"ADD_USER", "user2", "200"},
+                {"ADD_FILE_BY", "file1", "50", "user1"},
+                {"ADD_FILE_BY", "file2", "100", "user2"},
+                {"COPY_FILE", "file1", "file3"},
+                {"GET_FILE_SIZE", "file3"},
+                {"FIND_FILE", "fi", "", "", ""},
+                {"GET_N_LARGEST", "", "2"},
+                {"MERGE_USER", "user1", "user2"},
+                {"UPDATE_CAPACITY", "user1", "600"},
+                {"FIND_FILE", "fi", "", "user1", ""},
+                {"UPDATE_CAPACITY", "user1", "100"},
+                {"FIND_FILE", "fi", "", "user1", ""},
+                {"UPDATE_CAPACITY", "user1", "70"},
+                {"FIND_FILE", "fi", "", "user1", ""},
+        };
+        /* 
+        user1 0 file1 50 file3 50
+        user2 100 file2 100
+        
+        user1 100 file1 50 file3 50 file2 100
+        */
+
+        FileSystemSolution fs = new FileSystemSolution();
+
+        String[] results = fs.solution(queries);
+        System.out.println("--- FileSystemSolution ---");
+        for (String result : results) {
+            System.out.println(result);
+        }
+        
     }
 
 }
