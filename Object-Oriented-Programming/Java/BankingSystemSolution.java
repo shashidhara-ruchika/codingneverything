@@ -12,7 +12,6 @@ public class BankingSystemSolution {
 
         for (String[] query : queries) {
             switch (query[0]) {
-
                 case "CREATE_ACCOUNT": {
                     Boolean createAccountResult = bs.createAccount(query[2]);
                     result.add(createAccountResult.toString());
@@ -20,48 +19,32 @@ public class BankingSystemSolution {
                 }
                 case "DEPOSIT": {
                     Integer depositResult = bs.deposit(query[2], Integer.parseInt(query[3]));
-                    if (depositResult == null) {
-                        result.add("");
-                    } else {
-                        result.add(depositResult.toString());
-                    }
+                    result.add(depositResult == null ? "" : depositResult.toString());
                     break;
                 }
                 case "PAY": {
                     Integer payResult = bs.pay(query[2], Integer.parseInt(query[3]));
-                    if (payResult == null) {
-                        result.add("");
-                    } else {
-                        result.add(payResult.toString());
-                    }
+                    result.add(payResult == null ? "" : payResult.toString());
                     break;
                 }
-
                 case "TOP_ACTIVITY": {
                     List<Account> topNAccounts = bs.getTopNSortedAccounts(Integer.parseInt(query[2]));
                     if (topNAccounts.isEmpty()) {
                         result.add("");
                     } else {
                         List<String> accountsString = topNAccounts.stream()
-                                .map(a -> a.accountId + "(" + a.transactionAmount + ")")
+                                .map(a -> a.printAccount())
                                 .collect(Collectors.toList());
                         result.add(String.join(", ", accountsString));
                     }
                     break;
                 }
-
                 case "TRANSFER": {
                     String transferResult = bs.transfer(Long.parseLong(query[1]), query[2], query[3],
                             Integer.parseInt(query[4]));
-                    if (transferResult == null) {
-                        result.add("");
-                    } else {
-                        result.add(transferResult);
-                    }
-
+                    result.add(transferResult == null ? "" : transferResult);
                     break;
                 }
-
                 case "ACCEPT_TRANSFER": {
                     Boolean acceptTransferResult = bs.acceptTransfer(Long.parseLong(query[1]), query[2], query[3]);
                     result.add(acceptTransferResult.toString());
@@ -96,58 +79,31 @@ public class BankingSystemSolution {
             return true;
         }
 
-        public Integer depositAmount(String accountId, Integer amount) {
-            Account account = getAccount(accountId);
-            if (account == null) {
-                return null;
-            }
-            account.amount = account.amount + amount;
-            return account.amount;
-        }
-
-        public Integer addTransactionAmount(String accountId, Integer amount) {
-            Account account = getAccount(accountId);
-            if (account == null) {
-                return null;
-            }
-            account.transactionAmount = account.transactionAmount + amount;
-            return account.transactionAmount;
-        }
-
         public Integer deposit(String accountId, Integer amount) {
-            Integer depositResult = depositAmount(accountId, amount);
-
-            if (depositResult == null) {
-                return null;
-            }
-
-            addTransactionAmount(accountId, amount);
-            return depositResult;
-        }
-
-        public Integer withdrawAmount(String accountId, Integer amount) {
             Account account = getAccount(accountId);
             if (account == null) {
                 return null;
             }
+            account.deposit(amount);
+            account.addTransactionAmount(amount);
 
-            if (account.amount < amount) {
-                return null;
-            }
-            account.amount = account.amount - amount;
             return account.amount;
         }
 
         public Integer pay(String accountId, Integer amount) {
 
-            Integer payResult = withdrawAmount(accountId, amount);
-            if (payResult == null) {
+            Account account = getAccount(accountId);
+            if (account == null) {
                 return null;
             }
 
-            addTransactionAmount(accountId, amount);
+            Boolean hasWithdrawn = account.withdraw(amount);
+            if (!hasWithdrawn) {
+                return null;
+            }
+            account.addTransactionAmount(amount);
 
-            return payResult;
+            return account.amount;
         }
 
         public List<Account> getTopNSortedAccounts(int n) {
@@ -163,73 +119,59 @@ public class BankingSystemSolution {
 
         }
 
-        public String transfer(Long createdTimestamp, String sourceId, String destinationId, Integer amount) {
-            if (sourceId.equals(destinationId) || !bankAccounts.containsKey(sourceId)
-                    || !bankAccounts.containsKey(destinationId)) {
-                return null;
-            }
-            if (bankAccounts.get(sourceId).amount < amount) {
-                return null;
-            } else {
-                Integer payResult = withdrawAmount(sourceId, amount);
-                if (payResult == null) {
-                    return null;
-                }
-                Transfer transfer = new Transfer(createdTimestamp + DAY, bankAccounts.get(sourceId),
-                        bankAccounts.get(destinationId), amount);
-                String transferId = "transfer" + Integer.valueOf(transfers.size() + 1).toString();
-                transfers.put(transferId, transfer);
-                return transferId;
-            }
+        public Boolean isInvalidInitiateTransfer(Long createdTimestamp, String sourceId, String destinationId, Integer amount) {
+            return sourceId.equals(destinationId) || !bankAccounts.containsKey(sourceId)
+                    || !bankAccounts.containsKey(destinationId);
         }
 
-        public Boolean isValidTransfer(Long timestamp, String destinationId, Transfer transfer) {
-
-            if (!destinationId.equals(transfer.destination.accountId)) {
-                return false;
-            }
-            if (transfer.isProcessed) {
-                return false;
-            }
-            if (timestamp > transfer.expirationTime) {
-                return false;
+        public String transfer(Long createdTimestamp, String sourceId, String destinationId, Integer amount) {
+            if(isInvalidInitiateTransfer(createdTimestamp, sourceId, destinationId, amount)) {
+                return null;
             }
 
-            return true;
+            Account sourceAccount = getAccount(sourceId);
+            if (sourceAccount == null) {
+                return null;
+            }
+
+            Boolean hasWithdrawn = sourceAccount.withdraw(amount);
+            if (!hasWithdrawn) {
+                return null;
+            }
+
+            Transfer transfer = new Transfer(createdTimestamp + DAY, bankAccounts.get(sourceId),
+                    bankAccounts.get(destinationId), amount);
+            String transferId = "transfer" + Integer.valueOf(transfers.size() + 1).toString();
+            transfers.put(transferId, transfer);
+            return transferId;
+            
+        }
+
+        public Boolean isInvalidAcceptTransfer(Long timestamp, String destinationId, Transfer transfer) {
+            return transfer == null || !destinationId.equals(transfer.destination.accountId) || transfer.isProcessed;
         }
 
         public Boolean acceptTransfer(Long timestamp, String destinationId, String transferId) {
 
-            if (!transfers.containsKey(transferId)) {
-                return false;
-            }
-            
             Transfer transfer = transfers.get(transferId);
-            if (transfer.isProcessed) {
+            if (isInvalidAcceptTransfer(timestamp, destinationId, transfer)) {
                 return false;
             }
 
-            if (!destinationId.equals(transfer.destination.accountId)) {
-                return false;
-            }
+            Account sourceAccount = transfer.source;
+            Account destinationAccount = transfer.destination;
             
             if (timestamp > transfer.expirationTime) {
-                depositAmount(transfer.source.accountId, transfer.amount);
+                sourceAccount.deposit(transfer.amount);
                 transfer.isProcessed = true;
                 return false;
             }
 
-            
-            Integer depositResult = depositAmount(transfer.destination.accountId, transfer.amount);
-            if (depositResult == null) {
-                depositAmount(transfer.source.accountId, transfer.amount);
-                transfer.isProcessed = true;
-                return false;
-            }
+            destinationAccount.deposit(transfer.amount); 
 
             transfer.isProcessed = true;
-            addTransactionAmount(transfer.source.accountId, transfer.amount);
-            addTransactionAmount(transfer.destination.accountId, transfer.amount);
+            sourceAccount.addTransactionAmount(transfer.amount);
+            destinationAccount.addTransactionAmount(transfer.amount);
             return true;
         }
     }
@@ -247,6 +189,24 @@ public class BankingSystemSolution {
             this.destination = d;
             isProcessed = false;
             this.amount = a;
+        }
+
+        @Override
+        public String toString() {
+            return new StringBuilder()
+                .append("Transfer{")
+                .append("expirationTime=")
+                .append(expirationTime)
+                .append(", source=")
+                .append(source)
+                .append(", destination=")
+                .append(destination)
+                .append(", isProcessed=")
+                .append(isProcessed)
+                .append(", amount=")
+                .append(amount)
+                .append("}")
+                .toString();
         }
     }
 
@@ -267,6 +227,45 @@ public class BankingSystemSolution {
                 return this.accountId.compareTo(otherAccount.accountId);
             }
             return otherAccount.transactionAmount.compareTo(this.transactionAmount);
+        }
+
+        @Override
+        public String toString() {
+            return new StringBuilder()
+                .append("Account{")
+                .append("accountId='")
+                .append(accountId)
+                .append("', amount=")
+                .append(amount)
+                .append(", transactionAmount=")
+                .append(transactionAmount)
+                .append("}")
+                .toString();
+        }
+
+        public String printAccount() {
+            return new StringBuilder()
+                .append(accountId)
+                .append("(")
+                .append(amount)
+                .append(")")
+                .toString();
+        }
+
+        public void deposit(Integer amount) {
+            this.amount += amount;
+        }
+
+        public Boolean withdraw(Integer amount) {
+            if (amount > this.amount) {
+                return false;
+            }
+            this.amount -= amount;
+            return true;
+        }
+
+        public void addTransactionAmount(Integer amount) {
+            this.transactionAmount += amount;
         }
     }
 

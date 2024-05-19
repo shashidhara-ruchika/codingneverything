@@ -3,8 +3,8 @@
 import java.util.*;
 
 
-public class MaxProfit-BuySellStock {
-    class Solution {
+public class MaxProfit {
+    
         public int maxProfit(int[] prices) {
     
             int profit = 0;
@@ -28,5 +28,11 @@ public class MaxProfit-BuySellStock {
             return profit;
             
         }
+    
+
+    public static void main(String[] args) {
+        MaxProfit s = new MaxProfit();
+        int[] prices = {10,7,7,1};
+        System.out.println(s.maxProfit(prices));
     }
 }
