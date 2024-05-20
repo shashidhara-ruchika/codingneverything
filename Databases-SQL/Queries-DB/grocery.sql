@@ -187,7 +187,21 @@ on p.promotion_id = s.promotion_id
  -------------- PLEASE WRITE YOUR SQL SOLUTION BELOW THIS LINE ----------------
  */
 
--- TODO --
+ select (1 - sum(is_product_category_sold) / ( select count(distinct product_category) from product_classes )) * 100 
+ as pct_product_categories_never_sold
+ from (
+ select distinct pc.product_category, 
+ case
+    when s.product_id is null then 0.0
+    else 1.0
+ end as is_product_category_sold
+ from products p
+ join product_classes pc
+ on pc.product_class_id = p.product_class_id
+ left join sales s
+ on s.product_id = p.product_id
+ order by pc.product_class_id
+  ) ;
 
 
 
