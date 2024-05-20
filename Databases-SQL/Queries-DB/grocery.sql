@@ -56,7 +56,7 @@ from products
 where is_low_fat_flg > 0 and is_recyclable_flg > 0;
 
 
-select sum(is_low_fat_and_recyclable) / count(*)
+select 100.0 * sum(is_low_fat_and_recyclable) / count(*)
 from
 (
 select product_id, 
@@ -96,7 +96,16 @@ from products
  where media_type not like '%,%'
  group by media_type
  order by total_cost desc 
- limit 5
+ limit 5;
+
+ with RankedSingleChannelMediaType as (
+ select media_type as single_channel_media_type,
+ row_num() over ( partition by media_type order by cost desc ) as  mrank
+ from promotions
+ where media_type not like '%,%')
+ select * 
+ from RankedSingleChannelMediaType
+ where row_num <= 5;
 
 
 /*
@@ -118,7 +127,7 @@ from products
  */
 
 
-select sum(valid_promotion) / count(*) as pct_of_transactions_on_first_or_last_day_of_valid_promotion
+select 100.0 * sum(valid_promotion) / count(*) as pct_of_transactions_on_first_or_last_day_of_valid_promotion
 from
 (
 select p.promotion_id,
@@ -129,7 +138,57 @@ end as valid_promotion
 from promotions p
 join sales s
 on p.promotion_id = s.promotion_id
-)
+);
+
+ /*
+ PROMPT
+ -- The CMO is interested in understanding how the sales of different
+ -- product families are affected by promotional campaigns.
+ -- To do so, for each of the available product families,
+ -- show the total number of units sold,
+ -- as well as the ratio of units sold that had a valid promotion
+ -- to units sold without a promotion,
+ -- ordered by increasing order of total units sold.
+ 
+ 
+ EXPECTED OUTPUT
+ Note: Please use the column name(s) specified in the expected output in your solution.
+ +----------------+------------------+--------------------------------------------------+
+ | product_family | total_units_sold | ratio_units_sold_with_promo_to_sold_without_promo|
+ +----------------+------------------+--------------------------------------------------+
+ | Drink          |          43.0000 |                           0.79166666666666666667 |
+ | Non-Consumable |         176.0000 |                           0.76000000000000000000 |
+ | Food           |         564.0000 |                           0.75155279503105590062 |
+ +----------------+------------------+--------------------------------------------------+
+ 
+ -------------- PLEASE WRITE YOUR SQL SOLUTION BELOW THIS LINE ----------------
+ */
+ 
+
+-- TODO --
+
+  /*
+ PROMPT:
+ -- The VP of Sales feels that some product categories don't sell
+ -- and can be completely removed from the inventory.
+ -- As a first pass analysis, they want you to find what percentage
+ -- of product categories have never been sold.
+ 
+ EXPECTED OUTPUT:
+ Note: Please use the column name(s) specified in the expected output in your solution.
+ +-----------------------------------+
+ | pct_product_categories_never_sold |
+ +-----------------------------------+
+ |               13.8888888888888889 |
+ +-----------------------------------+
+ 
+ 
+
+ -------------- PLEASE WRITE YOUR SQL SOLUTION BELOW THIS LINE ----------------
+ */
+
+-- TODO --
+
 
 
 
