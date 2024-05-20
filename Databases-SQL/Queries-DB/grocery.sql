@@ -202,12 +202,3 @@ on p.promotion_id = s.promotion_id
  on s.product_id = p.product_id
  order by pc.product_class_id
   ) ;
-
-
-
-
-
-
-
-
-
