@@ -35,7 +35,7 @@ class WordLadder {
     return -1;
   }
 
-  public static Integer wordLadderSolution(String[] strArr) {
+  public static Integer wordLadderSolutionDEBFS(String[] strArr) {
     String begin = strArr[0];
     int n = strArr.length;
     String end = strArr[n - 1];
@@ -76,12 +76,75 @@ class WordLadder {
 
   }
 
+
+  public static Integer wordLadderSolution(String[] strArr) {
+    String begin = strArr[0];
+    int n = strArr.length;
+    String end = strArr[n - 1];
+
+    Map<String, Set<String>> allComboDict = new HashMap<>();
+    for (String word : strArr) {
+      Set<String> set = new HashSet<>();
+      allComboDict.put(word, set);
+      for (int i = 0; i < word.length(); i++) {
+        char[] chars = word.toCharArray();
+        chars[i] = '*';
+        String newWord = new String(chars);
+        set.add(newWord);
+      }
+    }
+    
+    Queue<Pair> q = new LinkedList<>();
+
+    Map<String, Integer> visited = new HashMap<>();
+
+    q.offer(new Pair(begin, 1));
+    visited.put(begin, 1);
+
+    while (!q.isEmpty()) {
+      Pair p = q.poll();
+      String currentWord = p.word;
+      int currentStep = p.step;
+
+      if (currentWord.equals(end)) {
+        return currentStep;
+      }
+
+      for (String comb : allComboDict.get(currentWord)) {
+        
+        for (String word : allComboDict.keySet()) {
+          if (!word.equals(currentWord) && !visited.containsKey(word) && allComboDict.get(word).contains(comb)) {
+            q.offer(new Pair(word, currentStep + 1));
+            visited.put(word, currentStep + 1);
+          }
+        }
+        
+      }
+
+    }
+    
+
+    return -1;
+  }
+
+  static class Pair {
+    String word;
+    int step;
+
+    Pair(String word, int step) {
+      this.word = word;
+      this.step = step;
+    }
   
-  
+  }
+
   public static void main (String[] args) {  
     // keep this function call here     
-    Scanner s = new Scanner(System.in);
-    System.out.print(wordLadderSolution(s.nextLine()).toString()); 
+    String[] s = new String[] {"hit", "log", "dot", "hot", "dog", "lot", "cog"};
+    
+    System.err.println(wordLadderSolutionDEBFS(s));
+    System.err.println(wordLadderSolution(s));
+
   }
 
 }
