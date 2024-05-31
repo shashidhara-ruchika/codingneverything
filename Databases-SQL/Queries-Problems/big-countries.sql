@@ -28,7 +28,7 @@ For example, according to the above table, we should output:
 
 SELECT W.NAME, W.POPULATION, W.AREA
 FROM WORLD AS W
-WHERE W.AREA > 3000000 OR W.POPULATION > 25000000;
+WHERE W.AREA >= 3000000 OR W.POPULATION >= 25000000;
 
 
 
